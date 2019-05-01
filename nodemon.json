@@ -1,0 +1,25 @@
+{
+  "restartable": "rs",
+  "ignore": [
+    ".git",
+    "node_modules/"
+  ],
+  "verbose": true,
+  "execMap": {
+    "": "node",
+    "js": "node --harmony --title=nodenka01"
+  },
+  "events": {
+    "restart": "echo 'app restart'"
+  },
+  "watch": [
+    "nk-project/",
+    "static/",
+    "views/"
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "ext": "js,json,html,css",
+  "legacy-watch": false
+}

@@ -1,0 +1,49 @@
+{
+  "name": "nk",
+  "version": "2.0.0",
+  "description": "front ssr framework,base on nodejs v10.15.3+,koa v2.7.0+,nunjucks v3.2.0+",
+  "main": "nka01.js",
+  "scripts": {
+    "build-product": "webpack --config webpack.production.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a07061625/nk.git"
+  },
+  "keywords": [
+    "front",
+    "ssr",
+    "web",
+    "framework",
+    "node",
+    "koa2",
+    "nunjucks"
+  ],
+  "author": "jiangwei",
+  "contact": "QQ:837483732 Email:jiangwei07061625@163.com",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/a07061625/nk/issues"
+  },
+  "homepage": "https://github.com/a07061625/nk#readme",
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "engines": {
+    "node": "^10.15.3",
+    "nodemon": "^1.18.11",
+    "forever": "^1.0.0",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "html-minifier": "^4.0.0",
+    "koa": "^2.7.0",
+    "koa-router": "^7.4.0",
+    "lru-cache": "^5.1.1",
+    "nunjucks": "^3.2.0",
+    "utility": "^1.16.1"
+  }
+}

@@ -1,0 +1,47 @@
+.bigImg {
+    width: 600px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    display: none;
+    z-index: 9999;
+    border: 10px solid #fff;
+}
+
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: 0.5;
+    filter: Alpha(opacity=50);
+    z-index: 98;
+    transition: all 1s;
+    display: none
+}
+
+.mask:hover {
+    cursor: zoom-out
+}
+
+.mask > img {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    width: 60px;
+}
+
+.mask > img:hover {
+    cursor: pointer
+}
+
+#img{
+    background: url(../images/demo_nginx.png);
+    width: 500px;
+    height: 500px;
+}

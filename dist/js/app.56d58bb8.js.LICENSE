@@ -1,0 +1,178 @@
+/******/
+
+// webpackBootstrap
+
+// The module cache
+
+// The require function
+
+// Check if module is in cache
+
+// Create a new module (and put it into the cache)
+
+// Execute the module function
+
+// Return the exports of the module
+
+// Flag the module as loaded
+
+// expose the modules object (__webpack_modules__)
+
+// Load entry module and return exports
+
+// expose the module cache
+
+// define getter function for harmony exports
+
+// define __esModule on exports
+
+// create a fake namespace object
+
+// mode & 1: value is a module id, require it
+
+// mode & 2: merge all properties of value into the ns
+
+// mode & 4: return value when already ns object
+
+// mode & 8|1: behave like require
+
+// getDefaultExport function for compatibility with non-harmony modules
+
+// Object.prototype.hasOwnProperty.call
+
+// __webpack_public_path__
+
+/************************************************************************/
+
+/* 0 */
+
+/***/
+
+/* 1 */
+
+/*
+ * 上传文件初始化
+ * res
+ *  @params contentId 内容显示ID 必填
+ * */
+
+//上传文件信息地址
+
+//文件大小限制，单位kb, 默认不限制
+
+//文件个数限制，为整数
+
+//初始化成功
+
+//在上传前执行的函数
+
+//在上传后执行的函数
+
+//在删除后执行的函数
+
+//文件是否自动上传
+
+//隐藏上传按钮
+
+//隐藏清理按钮
+
+//多选or单选
+
+//文件类型限制，默认不限制，注意写的是文件后缀
+
+//user_type: res.user_type || 2, //用户类型 1:总站 2:用户 3:联盟
+
+//1:文件上传 2:base64上传 3:外部链接上传 4:微信媒体上传
+
+//图片宽度
+
+/*
+    * 上传文件初始化
+    * */
+
+/*
+    * 展示获取到的文件内容
+    * */
+
+/*
+     * 上传开始前执行的函数
+     * */
+
+//console.log(0);
+
+/*
+    * 上传完成后执行的函数
+    * */
+
+/*
+    * 删除图片
+    * res 删除元素位置 fileCodeId
+    * opt 对象
+    * */
+
+/*
+    * 获取文件url数组
+    * */
+
+/* 2 */
+
+// extracted by mini-css-extract-plugin
+
+/* 3 */
+
+/* 4 */
+
+/**
+ * Created by Chen on 15/11/27.
+ * 微信分享
+ */
+
+//分享链接
+
+//分享标题
+
+//分享描述
+
+//分享图标
+
+//分享类型,music、video或link，不填默认为link
+
+////如果type是music或video，则要提供数据链接，默认为空
+
+//alert('用户取消分享后执行的回调函数');
+
+// 分享类型,music、video或link，不填默认为link
+
+// 如果type是music或video，则要提供数据链接，默认为空
+
+//深度克隆
+
+//反序列化
+
+// 开启  调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+
+// 必填，公众号的唯一标识
+
+// 必填，生成签名的时间戳
+
+// 必填，生成签名的随机串
+
+// 必填，签名，见附录1
+
+// 需要检测的JS接口列表，所有JS接口列表见附录2,
+
+//self.wx.showOptionMenu();
+
+//分享qq
+
+//分享朋友
+
+//分享朋友圈
+
+//分享微博
+
+//定位
+
+// 阅读模式
+
+//'menuItem:copyUrl', // 复制链接
