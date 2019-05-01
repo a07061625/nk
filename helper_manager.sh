@@ -9,7 +9,7 @@ DIR_LOG=/home/logs/nodeforever
 # 框架公共库node模块目录
 DIR_LIB_FRAME_MODULE=$DIR_ROOT/node_modules/nk-frame
 # 框架公共库原始目录
-DIR_LIB_FRAME_ORIGIN=/home/jsspace/nkv/nk-frame
+DIR_LIB_FRAME_ORIGIN=/home/jsspace/nk/nk-frame
 # 项目公共库node模块目录
 DIR_LIB_PROJECT_MODULE=$DIR_ROOT/node_modules/nk-project
 # 项目公共库原始目录
