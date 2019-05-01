@@ -13,13 +13,8 @@ class ErrorController extends CommonController {
 
     indexAction() {
         return async (ctx, next) => {
-            let data = {
-                title: "jw test",
-                num: 123
-            };
-
-            await ctx.render('index', data);
-            next();
+            ctx.render('error.html', {});
+            await next();
         }
     }
 }

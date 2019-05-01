@@ -13,10 +13,11 @@ class IndexController extends CommonController {
 
     indexAction() {
         return async (ctx, next) => {
-            ctx.body = this.render('index/index.html', {
+            ctx.render('index/index.html', {
                 title: "jw test",
                 content: "Hello World Index!"
             });
+
             await next();
         }
     }

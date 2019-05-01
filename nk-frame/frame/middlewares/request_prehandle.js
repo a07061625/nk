@@ -17,7 +17,7 @@ module.exports = () => {
         }
 
         //设置响应数据格式
-        ctx.type = 'html';
+        ctx.response.type = 'text/html';
 
         //设置框架GET请求数据
         let queryData = ctx.params || {};
