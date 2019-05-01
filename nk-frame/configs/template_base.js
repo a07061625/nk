@@ -7,8 +7,6 @@
 module.exports = {
     "nunjucks": {
         "autoescape": true,
-        "noCache": false,
-        "watch": true,
         "throwOnUndefined": false,
     }
 };

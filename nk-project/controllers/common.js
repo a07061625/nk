@@ -4,11 +4,9 @@
  * Date: 19-5-1
  * Time: 下午1:05
  */
-const BaseController = require('nk-frame/frame/controller_base');
 
-class CommonController extends BaseController{
+class CommonController {
     constructor() {
-        super();
     }
 }
 

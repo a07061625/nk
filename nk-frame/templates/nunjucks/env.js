@@ -9,9 +9,10 @@ const templateConfig = require('nk-project/configs/template');
 const filters = require('nk-project/templates/nunjucks/filters')
 
 let viewPath = process.cwd() + '/views';
+let notProduction = process.env.NODE_ENV !== 'production';
 let fileLoader = new nunjucks.FileSystemLoader(viewPath, {
-    noCache: templateConfig.nunjucks.noCache,
-    watch: templateConfig.nunjucks.watch
+    noCache: notProduction,
+    watch: notProduction
 });
 let env = new nunjucks.Environment(fileLoader, {
     autoescape: templateConfig.nunjucks.autoescape,
