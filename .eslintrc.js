@@ -83,28 +83,28 @@ module.exports = {
         "valid-typeof": 2,
 
         /** 最佳实践 **/
-        // 定义对象的set存取器属性时，强制定义get
+        // 定义对象的set存取器属性时,强制定义get
         "accessor-pairs": 2,
         // 强制数组方法的回调函数中有 return 语句
         "array-callback-return": 0,
         // 强制把变量的使用限制在其定义的作用域范围内
         "block-scoped-var": 0,
-        // 限制圈复杂度，也就是类似if else能连续接多少个
+        // 限制圈复杂度,也就是类似if else能连续接多少个
         "complexity": [2, 9],
-        //  要求 return 语句要么总是指定返回的值，要么不指定
+        //  要求 return 语句要么总是指定返回的值,要么不指定
         "consistent-return": 0,
         // 强制所有控制语句使用一致的括号风格
         "curly": [2, "all"],
-        // switch 语句强制 default 分支，也可添加 // no default 注释取消此次警告
+        // switch 语句强制 default 分支,也可添加 // no default 注释取消此次警告
         "default-case": 2,
-        // 强制object.key 中 . 的位置，参数:
-        //      property，'.'号应与属性在同一行
+        // 强制object.key 中 . 的位置,参数:
+        //      property,'.'号应与属性在同一行
         //      object, '.' 号应与对象名在同一行
         "dot-location": [2, "property"],
         // 强制使用.号取属性
-        //    参数： allowKeywords：true 使用保留字做属性名时，只能使用.方式取属性
+        //    参数： allowKeywords：true 使用保留字做属性名时,只能使用.方式取属性
         //                          false 使用保留字做属性名时, 只能使用[]方式取属性 e.g [2, {"allowKeywords": false}]
-        //           allowPattern:  当属性名匹配提供的正则表达式时，允许使用[]方式取值,否则只能用.号取值 e.g [2, {"allowPattern": "^[a-z]+(_[a-z]+)+$"}]
+        //           allowPattern:  当属性名匹配提供的正则表达式时,允许使用[]方式取值,否则只能用.号取值 e.g [2, {"allowPattern": "^[a-z]+(_[a-z]+)+$"}]
         "dot-notation": [2, {"allowKeywords": false}],
         // 使用 === 替代 == allow-null允许null和undefined==
         "eqeqeq": [2, "allow-null"],
@@ -120,7 +120,7 @@ module.exports = {
         "no-div-regex": 2,
         // 禁止 if 语句中有 return 之后有 else
         "no-else-return": 0,
-        // 禁止出现空函数.如果一个函数包含了一条注释，它将不会被认为有问题。
+        // 禁止出现空函数.如果一个函数包含了一条注释,它将不会被认为有问题。
         "no-empty-function": 2,
         // 禁止使用空解构模式no-empty-pattern
         "no-empty-pattern": 2,
@@ -158,7 +158,7 @@ module.exports = {
         "no-magic-numbers": [1, {"ignore": [0, -1, 1]}],
         // 禁止使用多个空格
         "no-multi-spaces": 2,
-        // 禁止使用多行字符串，在 JavaScript 中，可以在新行之前使用斜线创建多行字符串
+        // 禁止使用多行字符串,在 JavaScript 中,可以在新行之前使用斜线创建多行字符串
         "no-multi-str": 2,
         // 禁止对原生对象赋值
         "no-native-reassign": 2,
@@ -166,7 +166,7 @@ module.exports = {
         "no-new": 2,
         // 禁止对 Function 对象使用 new 操作符
         "no-new-func": 0,
-        // 禁止对 String，Number 和 Boolean 使用 new 操作符
+        // 禁止对 String,Number 和 Boolean 使用 new 操作符
         "no-new-wrappers": 2,
         // 禁用八进制字面量
         "no-octal": 2,
@@ -234,7 +234,7 @@ module.exports = {
         "no-shadow": 0,
         // 禁止覆盖受限制的标识符
         "no-shadow-restricted-names": 2,
-        // 禁用未声明的变量，除非它们在 /*global */ 注释中被提到
+        // 禁用未声明的变量,除非它们在 /* global */ 注释中被提到
         "no-undef": 2,
         // 禁止将变量初始化为 undefined
         "no-undef-init": 2,
@@ -266,12 +266,12 @@ module.exports = {
         "no-sync": 0,
 
         /** 风格指南 **/
-        // 指定数组的元素之间要以空格隔开(, 后面)， never参数：[ 之前和 ] 之后不能带空格，always参数：[ 之前和 ] 之后必须带空格
+        // 指定数组的元素之间要以空格隔开(, 后面), never参数：[ 之前和 ] 之后不能带空格,always参数：[ 之前和 ] 之后必须带空格
         "array-bracket-spacing": [2, "never"],
         // 禁止或强制在单行代码块中使用空格(禁用)
         "block-spacing": [1, "never"],
-        //强制使用一致的缩进 第二个参数为 "tab" 时，会使用tab，
-        // if while function 后面的{必须与if在同一行，java风格。
+        //强制使用一致的缩进 第二个参数为 "tab" 时,会使用tab,
+        // if while function 后面的{必须与if在同一行,java风格。
         "brace-style": [2, "1tbs", {"allowSingleLine": true}],
         // 双峰驼命名格式
         "camelcase": 2,
@@ -281,10 +281,10 @@ module.exports = {
         // http://eslint.org/docs/rules/comma-style
         "comma-style": [2, "last"],
         //"SwitchCase" (默认：0) 强制 switch 语句中的 case 子句的缩进水平
-        // 以方括号取对象属性时，[ 后面和 ] 前面是否需要空格, 可选参数 never, always
+        // 以方括号取对象属性时,[ 后面和 ] 前面是否需要空格, 可选参数 never, always
         "computed-property-spacing": [2, "never"],
-        // 用于指统一在回调函数中指向this的变量名，箭头函数中的this已经可以指向外层调用者，应该没卵用了
-        // e.g [0,"that"] 指定只能 var that = this. that不能指向其他任何值，this也不能赋值给that以外的其他值
+        // 用于指统一在回调函数中指向this的变量名,箭头函数中的this已经可以指向外层调用者,应该没卵用了
+        // e.g [0,"that"] 指定只能 var that = this. that不能指向其他任何值,this也不能赋值给that以外的其他值
         "consistent-this": [1, "that"],
         // 强制使用命名的 function 表达式
         "func-names": 0,
@@ -297,9 +297,9 @@ module.exports = {
         "linebreak-style": [0, "unix"],
         // 要求在注释周围有空行      ( 要求在块级注释之前有一空行)
         "lines-around-comment": [1, {"beforeBlockComment": true}],
-        //  强制一致地使用函数声明或函数表达式，方法定义风格，参数：
-        //    declaration: 强制使用方法声明的方式，function f(){} e.g [2, "declaration"]
-        //    expression：强制使用方法表达式的方式，var f = function() {}  e.g [2, "expression"]
+        //  强制一致地使用函数声明或函数表达式,方法定义风格,参数：
+        //    declaration: 强制使用方法声明的方式,function f(){} e.g [2, "declaration"]
+        //    expression：强制使用方法表达式的方式,var f = function() {}  e.g [2, "expression"]
         //    allowArrowFunctions: declaration风格中允许箭头函数。 e.g [2, "declaration", { "allowArrowFunctions": true }]
         "func-style": 0,
         // 强制回调函数最大嵌套深度 5层
@@ -324,7 +324,7 @@ module.exports = {
         "max-statements": [1, 200],
         // 强制每一行中所允许的最大语句数量
         "max-statements-per-line": 0,
-        // 要求构造函数首字母大写  （要求调用 new 操作符时有首字母大小的函数，允许调用首字母大写的函数时没有 new 操作符。）
+        // 要求构造函数首字母大写  （要求调用 new 操作符时有首字母大小的函数,允许调用首字母大写的函数时没有 new 操作符。）
         "new-cap": [2, {"newIsCap": true, "capIsNew": false}],
         // 要求调用无参构造函数时有圆括号
         "new-parens": 2,
@@ -394,7 +394,7 @@ module.exports = {
         "quotes": [2, "single", "avoid-escape"],
         // 要求使用 JSDoc 注释
         "require-jsdoc": 1,
-        // 要求或禁止使用分号而不是 ASI（这个才是控制行尾部分号的，）
+        // 要求或禁止使用分号而不是 ASI（这个才是控制行尾部分号的,）
         "semi": [2, "always"],
         // 强制分号之前和之后使用一致的空格
         "semi-spacing": 0,
@@ -423,13 +423,13 @@ module.exports = {
         // 要求箭头函数的参数使用圆括号
         "arrow-parens": 2,
         "arrow-spacing": [2, {"before": true, "after": true}],
-        // 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示
+        // 强制在子类构造函数中用super()调用父类构造函数,TypeScrip的编译器也会提示
         "constructor-super": 0,
         // 强制 generator 函数中 * 号周围使用一致的空格
         "generator-star-spacing": [2, {"before": true, "after": true}],
         // 禁止修改类声明的变量
         "no-class-assign": 2,
-        // 不允许箭头功能，在那里他们可以混淆的比较
+        // 不允许箭头功能,在那里他们可以混淆的比较
         "no-confusing-arrow": 0,
         // 禁止修改 const 声明的变量
         "no-const-assign": 2,
@@ -441,7 +441,7 @@ module.exports = {
         "no-new-symbol": 2,
         // 允许指定模块加载时的进口
         "no-restricted-imports": 0,
-        // 禁止在构造函数中，在调用 super() 之前使用 this 或 super
+        // 禁止在构造函数中,在调用 super() 之前使用 this 或 super
         "no-this-before-super": 2,
         // 禁止不必要的计算性能键对象的文字
         "no-useless-computed-key": 0,
