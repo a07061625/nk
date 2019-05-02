@@ -5,7 +5,6 @@
  * Time: 下午8:14
  */
 const fs = require('fs');
-const Log = require('nk-frame/logs/log');
 const KoaRouter = require('koa-router');
 const cacheRoute = require('nk-frame/caches/cache_route');
 
@@ -23,7 +22,6 @@ let controllerFile = '';
 let controller = '';
 let action = '';
 let actionName = '';
-Log.info('files:', files);
 for (let i = 0; i < files.length; i++) {
     if (!files[i].endsWith('.js')) {
         continue;
@@ -36,21 +34,22 @@ for (let i = 0; i < files.length; i++) {
     controllerFile = files[i];
     controller = files[i].substr(0, controllerFile.length - 3);
     controllerObj = require('nk-project/controllers/' + controller);
-    controllerKeys = Object.keys(controllerObj);
-    Log.info('keys:', controllerKeys);
+    controllerKeys = Object.getOwnPropertyNames(controllerObj);
     for (let j = 0; j < controllerKeys.length; j++) {
-        if (!controllerKeys[j].endsWith('Action')) {
+        actionName = controllerKeys[j];
+        if (!actionName.endsWith('Action')) {
+            continue;
+        }
+        if (typeof controllerObj[actionName] !== 'function') {
             continue;
         }
 
-        actionName = controllerKeys[j];
         action = controllerKeys[j].substr(0, action.length - 6);
         routeUri = '/' + controller + '/' + action;
         routeObj.get(routeUri, controllerObj[actionName]());
         routeMap[action] = 1;
     }
     cacheRoute.set(controller, routeMap);
-    Log.info('map:', routeMap);
 }
 
 module.exports = routeObj;
