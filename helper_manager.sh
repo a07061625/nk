@@ -44,7 +44,6 @@ function refreshModule() {
     fi
     rm -rf $DIR_LIB_FRAME_MODULE/*
     cp -rf $DIR_LIB_FRAME_ORIGIN/* $DIR_LIB_FRAME_MODULE
-    rm -rf $DIR_LIB_FRAME_MODULE/.gitignore $DIR_LIB_FRAME_MODULE/.git $DIR_LIB_FRAME_MODULE/.idea
     # 项目公共库更新
     if [ ${#DIR_LIB_PROJECT_MODULE} -lt 5 ]; then
         echo "project module dir invalid"
