@@ -26,6 +26,8 @@ SUFFIX_JS=".js"
 PID=`ps -A -o pid,ppid,cmd|grep node$PROJECT_TAG|grep -v 'grep'|awk 'BEGIN{pid=0} {pid=$1} END{print pid}'`
 # 启动命令
 COMMAND_START="start --minUptime 10000 --spinSleepTime 30000 --pidFile $DIR_LOG/$PROJECT_TAG$SUFFIX_PID -l $DIR_LOG/forever_$PROJECT_TAG$SUFFIX_LOG -o $DIR_LOG/out_$PROJECT_TAG$SUFFIX_LOG -e $DIR_LOG/error_$PROJECT_TAG$SUFFIX_LOG -a -c nodemon $PROJECT_TAG$SUFFIX_JS --exitcrash"
+# js脚本文件后缀
+FILE_CHECK_RESULT="rule_check.log"
 
 # 刷新模块
 function refreshModule() {
@@ -73,6 +75,20 @@ function checkRefreshModule() {
     esac
 }
 
+# js文件语法检查
+function jsRuleCheck() {
+    for file in `ls $1`
+    do
+        fullFile=$1/$file
+        if [ -d $fullFile ]; then
+            jsRuleCheck $fullFile
+        elif [ "${fullFile##*.}"x = "js"x ]; then # 多加了x,防止字符串为空时报错
+            echo $fullFile >> $DIR_ROOT/$FILE_CHECK_RESULT
+            eslint $fullFile >> $DIR_ROOT/$FILE_CHECK_RESULT
+        fi
+    done
+}
+
 case "$1" in
     init)
         rm -rf $DIR_ROOT/node_modules
@@ -113,7 +129,12 @@ case "$1" in
     build)
         npm run build-product
         ;;
+    check)
+        echo > $FILE_CHECK_RESULT
+        jsRuleCheck $DIR_LIB_FRAME_ORIGIN
+        jsRuleCheck $DIR_LIB_PROJECT_ORIGIN
+        ;;
     *)
-        echo "option must be init|start|stop|restart|refresh|build"
+        echo "option must be init|start|stop|restart|refresh|build|check"
         ;;
 esac
