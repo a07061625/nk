@@ -74,13 +74,13 @@ function checkRefreshModule() {
     esac
 }
 
-# js文件语法检查
-function jsRuleCheck() {
+# js文件格式化
+function formatJs() {
     for file in `ls $1`
     do
         fullFile=$1/$file
         if [ -d $fullFile ]; then
-            jsRuleCheck $fullFile
+            formatJs $fullFile
         elif [ "${fullFile##*.}"x = "js"x ]; then # 多加了x,防止字符串为空时报错
             eslint $fullFile --fix >> $DIR_ROOT/$FILE_CHECK_RESULT
         fi
@@ -127,12 +127,12 @@ case "$1" in
     build)
         npm run build-product
         ;;
-    check)
+    format)
         echo > $FILE_CHECK_RESULT
-        jsRuleCheck $DIR_LIB_FRAME_ORIGIN
-        jsRuleCheck $DIR_LIB_PROJECT_ORIGIN
+        formatJs $DIR_LIB_FRAME_ORIGIN
+        formatJs $DIR_LIB_PROJECT_ORIGIN
         ;;
     *)
-        echo "option must be init|start|stop|restart|refresh|build|check"
+        echo "option must be init|start|stop|restart|refresh|build|format"
         ;;
 esac
