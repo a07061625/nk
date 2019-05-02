@@ -4,7 +4,7 @@
  * Date: 19-4-30
  * Time: 上午9:45
  */
-let controller = require('nk-project/controllers/common');
+const controller = require('nk-project/controllers/common');
 controller.indexAction = async (ctx, next) => {
     ctx.render('index/index.html', {
         title: 'jw test',
