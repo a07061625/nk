@@ -38,9 +38,10 @@ module.exports = () => async (ctx, next) => {
         rewriteUri = true;
     }
 
-    Log.info('uri:', controller + action);
+    Log.info('uri:', controller + '/' + action);
     if (!cacheData.hasOwnProperty(action)) {
         redirectUrl = ctx.request.protocol + '://' + ctx.request.host + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在');
+        Log.info('redirect:', redirectUrl);
         ctx.redirect(projectConfig.uri.error + redirectUrl);
         return;
     }
