@@ -21,5 +21,4 @@ class ErrorController extends CommonController {
     }
 }
 
-let controller = new ErrorController();
-module.exports = controller;
+module.exports = ErrorController;

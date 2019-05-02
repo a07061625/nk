@@ -23,5 +23,4 @@ class IndexController extends CommonController {
     }
 }
 
-let controller = new IndexController();
-module.exports = controller;
+module.exports = IndexController;
