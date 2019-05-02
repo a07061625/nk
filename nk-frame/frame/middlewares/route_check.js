@@ -5,6 +5,7 @@
  * Time: 下午3:21
  */
 require('nk-frame/frame/middlewares/route_handle');
+const Log = require('nk-frame/logs/log');
 const cacheRoute = require('nk-frame/caches/cache_route');
 const projectConfig = require('nk-project/configs/project');
 
@@ -13,6 +14,7 @@ module.exports = () => async (ctx, next) => {
     let uriArr = uri.split('/');
     let controller = '';
     let rewriteUri = false;
+    let redirectUrl = '';
     if (typeof uriArr[1] === 'string') {
         controller = uriArr[1];
     }
@@ -22,7 +24,8 @@ module.exports = () => async (ctx, next) => {
     }
     let cacheData = cacheRoute.get(controller);
     if (cacheData === null) {
-        ctx.redirect(projectConfig.uri.error + '?err_msg=控制器不存在');
+        redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('控制器不存在');
+        ctx.redirect(redirectUrl);
         return;
     }
 
@@ -34,8 +37,11 @@ module.exports = () => async (ctx, next) => {
         action = 'index';
         rewriteUri = true;
     }
+
+    Log.info('uri:', controller + action);
     if (!cacheData.hasOwnProperty(action)) {
-        ctx.redirect(projectConfig.uri.error + '?err_msg=方法不存在');
+        redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在');
+        ctx.redirect(projectConfig.uri.error + redirectUrl);
         return;
     }
 

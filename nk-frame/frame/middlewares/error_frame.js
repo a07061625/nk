@@ -5,7 +5,7 @@
  * Time: 17:41
  */
 const Log = require('nk-frame/logs/log');
-const projectConfigs = require('nk-project/configs/project');
+const projectConfig = require('nk-project/configs/project');
 
 module.exports = () => async (ctx, next) => {
     try {
@@ -17,8 +17,9 @@ module.exports = () => async (ctx, next) => {
             errStatus = err.status;
         }
         if ((errStatus >= 500) || (errStatus <= 0)) {
+            let redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent(err.message);
             ctx.body = '';
-            ctx.redirect(projectConfigs.uri.error + '?err_msg=' + encodeURIComponent(err.message));
+            ctx.redirect(redirectUrl);
         } else if (errStatus >= 300) {
             ctx.status = errStatus;
         } else {
