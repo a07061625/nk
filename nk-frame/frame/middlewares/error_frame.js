@@ -17,7 +17,7 @@ module.exports = () => async (ctx, next) => {
             errStatus = err.status;
         }
         if ((errStatus >= 500) || (errStatus <= 0)) {
-            let redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent(err.message);
+            let redirectUrl = ctx.request.protocol + '://' + ctx.request.host + projectConfig.uri.error + '?err_msg=' + encodeURIComponent(err.message);
             ctx.body = '';
             ctx.redirect(redirectUrl);
         } else if (errStatus >= 300) {

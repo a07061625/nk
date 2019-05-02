@@ -24,7 +24,7 @@ module.exports = () => async (ctx, next) => {
     }
     let cacheData = cacheRoute.get(controller);
     if (cacheData === null) {
-        redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('控制器不存在');
+        redirectUrl = ctx.request.protocol + '://' + ctx.request.host + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('控制器不存在');
         ctx.redirect(redirectUrl);
         return;
     }
@@ -40,7 +40,7 @@ module.exports = () => async (ctx, next) => {
 
     Log.info('uri:', controller + action);
     if (!cacheData.hasOwnProperty(action)) {
-        redirectUrl = ctx.request.origin + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在');
+        redirectUrl = ctx.request.protocol + '://' + ctx.request.host + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在');
         ctx.redirect(projectConfig.uri.error + redirectUrl);
         return;
     }
