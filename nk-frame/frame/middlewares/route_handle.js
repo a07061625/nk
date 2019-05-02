@@ -46,7 +46,7 @@ for (let i = 0; i < files.length; i++) {
             continue;
         }
 
-        action = controllerKeys[j].substr(0, action.length - 6);
+        action = controllerKeys[j].substr(0, actionName.length - 6);
         routeUri = '/' + controller + '/' + action;
         routeObj.get(routeUri, controllerObj[actionName]);
         routeMap[action] = 1;
