@@ -4,21 +4,11 @@
  * Date: 19-5-1
  * Time: 下午1:48
  */
-const CommonController = require('nk-project/controllers/common');
-
-class ErrorController extends CommonController {
-    constructor () {
-        super();
+module.exports = {
+    'errorAction': async (ctx, next) => {
+        ctx.render('error.html', {
+            'err_msg': ctx.request.query.err_msg || '未知错误'
+        });
+        await next();
     }
-
-    errorAction () {
-        return async (ctx, next) => {
-            ctx.render('error.html', {
-                'err_msg': ctx.request.query.err_msg || '未知错误'
-            });
-            await next();
-        };
-    }
-}
-
-module.exports = ErrorController;
+};

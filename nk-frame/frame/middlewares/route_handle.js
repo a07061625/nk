@@ -16,7 +16,6 @@ let routeMap = {};
 let routeObj = new KoaRouter();
 let routeUri = '';
 let controllerPath = process.cwd() + '/node_modules/nk-project/controllers';
-let ControllerClass = null;
 let controllerObj = null;
 let controllerKeys = [];
 let controllerFile = '';
@@ -35,9 +34,8 @@ for (let i = 0; i < files.length; i++) {
     routeMap = {};
     controllerFile = files[i];
     controller = files[i].substr(0, controllerFile.length - 3);
-    ControllerClass = require('nk-project/controllers/' + controller);
-    controllerObj = new ControllerClass();
-    controllerKeys = Object.getOwnPropertyNames(controllerObj);
+    controllerObj = require('nk-project/controllers/' + controller);
+    controllerKeys = Object.keys(controllerObj);
     Log.info('keys:', controllerKeys);
     for (let j = 0; j < controllerKeys.length; j++) {
         actionName = controllerKeys[j];
@@ -50,7 +48,7 @@ for (let i = 0; i < files.length; i++) {
 
         action = controllerKeys[j].substr(0, action.length - 6);
         routeUri = '/' + controller + '/' + action;
-        routeObj.get(routeUri, controllerObj[actionName]());
+        routeObj.get(routeUri, controllerObj[actionName]);
         routeMap[action] = 1;
     }
     cacheRoute.set(controller, routeMap);

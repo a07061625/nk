@@ -4,23 +4,13 @@
  * Date: 19-4-30
  * Time: 上午9:45
  */
-const CommonController = require('nk-project/controllers/common');
+module.exports = {
+    'indexAction': async (ctx, next) => {
+        ctx.render('index/index.html', {
+            title: 'jw test',
+            content: 'Hello World Index!'
+        });
 
-class IndexController extends CommonController {
-    constructor () {
-        super();
+        await next();
     }
-
-    indexAction () {
-        return async (ctx, next) => {
-            ctx.render('index/index.html', {
-                title: 'jw test',
-                content: 'Hello World Index!'
-            });
-
-            await next();
-        };
-    }
-}
-
-module.exports = IndexController;
+};
