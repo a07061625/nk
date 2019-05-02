@@ -5,7 +5,6 @@
  * Time: 下午8:14
  */
 const fs = require('fs');
-const Log = require('nk-frame/logs/log');
 const KoaRouter = require('koa-router');
 const cacheRoute = require('nk-frame/caches/cache_route');
 
@@ -36,7 +35,6 @@ for (let i = 0; i < files.length; i++) {
     controller = files[i].substr(0, controllerFile.length - 3);
     controllerObj = require('nk-project/controllers/' + controller);
     controllerKeys = Object.keys(controllerObj);
-    Log.info('keys:', controllerKeys);
     for (let j = 0; j < controllerKeys.length; j++) {
         actionName = controllerKeys[j];
         if (!actionName.endsWith('Action')) {
@@ -52,7 +50,6 @@ for (let i = 0; i < files.length; i++) {
         routeMap[action] = 1;
     }
     cacheRoute.set(controller, routeMap);
-    Log.info('map:', routeMap);
 }
 
 module.exports = routeObj;
