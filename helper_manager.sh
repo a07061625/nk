@@ -83,8 +83,7 @@ function jsRuleCheck() {
         if [ -d $fullFile ]; then
             jsRuleCheck $fullFile
         elif [ "${fullFile##*.}"x = "js"x ]; then # 多加了x,防止字符串为空时报错
-            echo $fullFile >> $DIR_ROOT/$FILE_CHECK_RESULT
-            eslint $fullFile >> $DIR_ROOT/$FILE_CHECK_RESULT
+            eslint $fullFile --fix >> $DIR_ROOT/$FILE_CHECK_RESULT
         fi
     done
 }
