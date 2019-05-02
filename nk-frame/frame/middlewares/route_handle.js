@@ -52,6 +52,7 @@ for (let i = 0; i < files.length; i++) {
         routeMap[action] = 1;
     }
     cacheRoute.set(controller, routeMap);
+    Log.info('map:', routeMap);
 }
 
 module.exports = routeObj;
