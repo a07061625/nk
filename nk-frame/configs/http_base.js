@@ -5,11 +5,11 @@
  * Time: 下午9:34
  */
 module.exports = {
-    "cookies": {
-        "expire": 86400000,
-        "token": {
-            "key": "sytoken",
-            "length": 16
+    'cookies': {
+        'expire': 86400000,
+        'token': {
+            'key': 'sytoken',
+            'length': 16
         }
     }
 };

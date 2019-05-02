@@ -5,14 +5,12 @@
  * Time: 下午8:40
  */
 
-module.exports = () => {
-    return async (ctx, next) => {
-        ctx.render = function (view, data={}) {
-            let env = require('nk-frame/templates/nunjucks/env');
-            let viewData = Object.assign({}, ctx.state || {}, data || {});
-            ctx.response.body = env.render(view, viewData);
-        };
+module.exports = () => async (ctx, next) => {
+    ctx.render = function (view, data = {}) {
+        let env = require('nk-frame/templates/nunjucks/env');
+        let viewData = Object.assign({}, ctx.state || {}, data || {});
+        ctx.response.body = env.render(view, viewData);
+    };
 
-        await next();
-    }
+    await next();
 };

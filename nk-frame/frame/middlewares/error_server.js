@@ -6,8 +6,6 @@
  */
 const Log = require('nk-frame/logs/log');
 
-module.exports = () => {
-    return (err, ctx) => {
-        Log.error('server-error', err);
-    }
+module.exports = () => (err, ctx) => {
+    Log.error('server-error', err);
 };

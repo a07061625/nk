@@ -6,8 +6,6 @@
  */
 
 class CommonController {
-    constructor() {
-    }
 }
 
 module.exports = CommonController;

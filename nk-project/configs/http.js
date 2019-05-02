@@ -8,7 +8,7 @@ let baseConfig = require('nk-frame/configs/http_base');
 baseConfig.host = '172.18.134.123';
 baseConfig.port = 8700;
 baseConfig.cookies.allianceid = {
-    "key": "syaid"
+    'key': 'syaid'
 };
 
 module.exports = baseConfig;

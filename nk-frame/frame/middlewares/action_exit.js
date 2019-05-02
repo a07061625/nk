@@ -6,11 +6,9 @@
  */
 const Log = require('nk-frame/logs/log');
 
-module.exports = () => {
-    return async (ctx) => {
-        let tag = 'node-request' + process.ppid;
-        console.timeEnd(tag);
-        let msg = ctx.method + ' ' + ctx.request.href;
-        Log.info('exit', msg);
-    }
+module.exports = () => async (ctx) => {
+    let tag = 'node-request' + process.ppid;
+    console.timeEnd(tag);
+    let msg = ctx.method + ' ' + ctx.request.href;
+    Log.info('exit', msg);
 };

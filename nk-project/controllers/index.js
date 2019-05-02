@@ -7,19 +7,19 @@
 const CommonController = require('nk-project/controllers/common');
 
 class IndexController extends CommonController {
-    constructor() {
+    constructor () {
         super();
     }
 
-    indexAction() {
+    indexAction () {
         return async (ctx, next) => {
             ctx.render('index/index.html', {
-                title: "jw test",
-                content: "Hello World Index!"
+                title: 'jw test',
+                content: 'Hello World Index!'
             });
 
             await next();
-        }
+        };
     }
 }
 

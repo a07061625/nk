@@ -14,7 +14,7 @@ productConfig.output = {
     publicPath: 'http://120.79.139.64:8800/'
 };
 
-//图片处理
+// 图片处理
 productConfig.module.rules.push({
     test: /\.(png|jpg|gif|svg)/,
     use: [{
@@ -25,11 +25,11 @@ productConfig.module.rules.push({
         }
     }]
 });
-//消除未使用的CSS
+// 消除未使用的CSS
 productConfig.plugins.push(new PurifyCSSPlugin({
     paths: glob.sync('./views/*/*.html')
 }));
-//压缩CSS
+// 压缩CSS
 productConfig.plugins.push(new MiniCssExtractPlugin({
     filename: 'css/[name].[chunkhash:8].css',
     chunkFilename: 'css/[id].css'

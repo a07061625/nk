@@ -7,15 +7,15 @@
 const CommonController = require('nk-project/controllers/common');
 
 class ErrorController extends CommonController {
-    constructor() {
+    constructor () {
         super();
     }
 
-    indexAction() {
+    indexAction () {
         return async (ctx, next) => {
             ctx.render('error.html', {});
             await next();
-        }
+        };
     }
 }
 

@@ -7,24 +7,22 @@
 const Log = require('nk-frame/logs/log');
 const projectConfigs = require('nk-project/configs/project');
 
-module.exports = () => {
-    return async (ctx, next) => {
-        try {
-            await next();
-        } catch(err) {
-            Log.error('frame-error', err);
-            let errStatus = 0;
-            if (Number.isInteger(err.status)) {
-                errStatus = err.status;
-            }
-            if ((errStatus >= 500) || (errStatus <= 0)) {
-                ctx.body = '';
-                ctx.redirect(projectConfigs.uri.error + '?err_msg=' + encodeURIComponent(err.message));
-            } else if (errStatus >= 300) {
-                ctx.status = errStatus;
-            } else {
-                ctx.status = 400;
-            }
+module.exports = () => async (ctx, next) => {
+    try {
+        await next();
+    } catch (err) {
+        Log.error('frame-error', err);
+        let errStatus = 0;
+        if (Number.isInteger(err.status)) {
+            errStatus = err.status;
+        }
+        if ((errStatus >= 500) || (errStatus <= 0)) {
+            ctx.body = '';
+            ctx.redirect(projectConfigs.uri.error + '?err_msg=' + encodeURIComponent(err.message));
+        } else if (errStatus >= 300) {
+            ctx.status = errStatus;
+        } else {
+            ctx.status = 400;
         }
     }
 };

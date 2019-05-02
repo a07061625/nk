@@ -4,35 +4,36 @@
  * Date: 2019/4/26 0026
  * Time: 7:50
  */
-const CHAR_TOTAL = new Symbol('tool-char-tool');
-const CHAR_NUMLOWER = new Symbol('tool-char-numlower');
-const CHAR_LOWER = new Symbol('tool-char-lower');
+const CHAR_TOTAL = Symbol('tool-char-tool');
+const CHAR_NUMLOWER = Symbol('tool-char-numlower');
+const CHAR_LOWER = Symbol('tool-char-lower');
 
 class Tool {
+
     /**
      * 生成随机字符串
      * @param {number} length 字符串长度
      * @param {string} dataType 数据类型 total:数字和字母 numlower:数字和小写字母 lower:小写字母
-     * @returns {string}
+     * @returns {string} 随机字符串
      */
-    static createNonceStr(length,dataType='total') {
+    static createNonceStr (length, dataType = 'total') {
         let str = '';
         let pos = 0;
-        if (dataType == 'total') {
+        if (dataType === 'total') {
             let arrMaxIndex = 56;
-            for (let i=0; i<length; i++) {
+            for (let i = 0; i < length; i++) {
                 pos = Math.round(Math.random() * arrMaxIndex);
                 str += this[CHAR_TOTAL][pos];
             }
-        } else if (dataType == 'numlower') {
+        } else if (dataType === 'numlower') {
             let arrMaxIndex = 31;
-            for (let i=0; i<length; i++) {
+            for (let i = 0; i < length; i++) {
                 pos = Math.round(Math.random() * arrMaxIndex);
                 str += this[CHAR_NUMLOWER][pos];
             }
         } else {
             let arrMaxIndex = 23;
-            for (let i=0; i<length; i++) {
+            for (let i = 0; i < length; i++) {
                 pos = Math.round(Math.random() * arrMaxIndex);
                 str += this[CHAR_LOWER][pos];
             }
@@ -46,9 +47,9 @@ class Tool {
      * @param {string} file json配置文件,包含路径,不包含.json后缀
      * @param {string} key 键名
      * @param {*} defVal 默认值
-     * @returns {*}
+     * @returns {*} 配置
      */
-    static getConfigs(file,key='',defVal=null) {
+    static getConfigs (file, key = '', defVal = null) {
         let configs = require(file);
         if (key.length > 0) {
             let keyList = key.split('.');
@@ -69,10 +70,10 @@ class Tool {
     /**
      * 判断JSON对象是否为空
      * @param {object} obj JSON对象
-     * @returns {boolean}
+     * @returns {boolean} 判断结果
      */
-    static isEmptyJson(obj) {
-        for(let name in obj){
+    static isEmptyJson (obj) {
+        for (let name in obj) {
             return false;
         }
         return true;

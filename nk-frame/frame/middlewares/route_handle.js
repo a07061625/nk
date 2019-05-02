@@ -8,7 +8,9 @@ const fs = require('fs');
 const KoaRouter = require('koa-router');
 const cacheRoute = require('nk-frame/caches/cache_route');
 
-//获取并遍历所有的控制器文件列表
+/**
+ * 获取并遍历所有的控制器文件列表
+ */
 let routeMap = {};
 let routeObj = new KoaRouter();
 let routeUri = '';
@@ -20,7 +22,7 @@ let controllerFile = '';
 let controller = '';
 let action = '';
 let actionName = '';
-for (let i=0; i < files.length; i++) {
+for (let i = 0; i < files.length; i++) {
     if (!files[i].endsWith('.js')) {
         continue;
     }
@@ -33,7 +35,7 @@ for (let i=0; i < files.length; i++) {
     controller = files[i].substr(0, controllerFile.length - 3);
     controllerObj = require('nk-project/controllers/' + controller);
     controllerKeys = Object.keys(controllerObj);
-    for (let j=0; j < controllerKeys.length; j++) {
+    for (let j = 0; j < controllerKeys.length; j++) {
         if (!controllerKeys[j].endsWith('Action')) {
             continue;
         }

@@ -5,6 +5,7 @@
  * Time: 7:50
  */
 const Koa = require('koa');
+const Log = require('nk-frame/logs/log');
 const http = require('http');
 const httpConfig = require('nk-project/configs/http');
 const mwErrorServer = require('nk-frame/frame/middlewares/error_server');
@@ -26,7 +27,7 @@ const APP = Symbol('server-app');
  * Http服务类
  */
 class HttpServer {
-    constructor() {
+    constructor () {
         this[HOST] = httpConfig.host;
         this[PORT] = httpConfig.port;
         this[APP] = new Koa();
@@ -44,18 +45,19 @@ class HttpServer {
         this[APP].use(mwActionExit());
     }
 
-    get host() {
+    get host () {
         return this[HOST];
     }
 
-    get port() {
+    get port () {
         return this[PORT];
     }
 
     /**
      * 启动服务
+     * @return {void}
      */
-    startServer() {
+    startServer () {
         http.createServer(this[APP].callback())
             .on('error', (error) => {
                 Log.error('http-error', error);

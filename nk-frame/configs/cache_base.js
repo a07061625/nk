@@ -5,8 +5,8 @@
  * Time: 15:07
  */
 module.exports = {
-    "lru": {
-        "route": {
+    'lru': {
+        'route': {
             max: 1000
         }
     }

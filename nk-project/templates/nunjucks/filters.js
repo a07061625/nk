@@ -6,8 +6,6 @@
  */
 const filters = require('nk-frame/templates/nunjucks/filters_base');
 
-//过滤器名都是以nk开头
-filters.nktest = () => {
-    return 'test';
-};
+// 过滤器名都是以nk开头
+filters.nktest = () => 'test';
 module.exports = filters;

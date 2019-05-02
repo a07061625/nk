@@ -5,8 +5,8 @@
  * Time: 下午9:33
  */
 module.exports = {
-    "uri": {
-        "error": "/error/error",
-        "miss": "/error/miss"
+    'uri': {
+        'error': '/error/error',
+        'miss': '/error/miss'
     }
 };

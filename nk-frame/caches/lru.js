@@ -8,21 +8,20 @@ const LRU = require('lru-cache');
 const lruConfig = require('nk-project/configs/cache');
 
 class CacheLru {
-    obj = null;
 
     /**
-     * @param {string} tag
+     * @param {string} tag 标识
      */
-    constructor(tag) {
-        this.obj = new LRU(lruConfig['lru'][tag]);
+    constructor (tag) {
+        this.obj = new LRU(lruConfig.lru[tag]);
     }
 
     /**
      * 获取缓存数据
-     * @param {string} key
-     * @returns {*}
+     * @param {string} key 键名
+     * @returns {*} 数据
      */
-    get(key) {
+    get (key) {
         let data = this.obj.get(key);
         if (typeof data === 'undefined') {
             return null;
@@ -32,11 +31,11 @@ class CacheLru {
 
     /**
      * 设置缓存数据
-     * @param {string} key
-     * @param {*} value
-     * @returns {boolean}
+     * @param {string} key 键名
+     * @param {*} value 键值
+     * @returns {boolean} 设置结果
      */
-    set(key, value) {
+    set (key, value) {
         if ((value === null) || (typeof value === 'undefined')) {
             return false;
         }
@@ -46,27 +45,27 @@ class CacheLru {
 
     /**
      * 检测缓存数据是否存在
-     * @param {string} key
-     * @returns {*|boolean}
+     * @param {string} key 键名
+     * @returns {*|boolean} 检测结果
      */
-    exist(key) {
+    exist (key) {
         return this.obj.has(key);
     }
 
     /**
      * 删除缓存数据
-     * @param {string} key
-     * @returns {*}
+     * @param {string} key 键名
+     * @returns {*} 删除结果
      */
-    del(key) {
+    del (key) {
         return this.obj.del(key);
     }
 
     /**
      * 清空缓存
-     * @returns {*}
+     * @returns {*} 清空结果
      */
-    reset() {
+    reset () {
         return this.obj.reset();
     }
 }

@@ -6,17 +6,15 @@
  */
 const projectConfigs = require('nk-project/configs/project');
 
-module.exports = () => {
-    return async (ctx, next) => {
-        await next();
+module.exports = () => async (ctx, next) => {
+    await next();
 
-        let resStatus = parseInt(ctx.status);
-        if (resStatus === 404) {
-            ctx.body = '';
-            ctx.redirect(projectConfigs.uri.miss);
-        } else if (resStatus >= 500) {
-            ctx.body = '';
-            ctx.redirect(projectConfigs.uri.error);
-        }
+    let resStatus = parseInt(ctx.status, 10);
+    if (resStatus === 404) {
+        ctx.body = '';
+        ctx.redirect(projectConfigs.uri.miss);
+    } else if (resStatus >= 500) {
+        ctx.body = '';
+        ctx.redirect(projectConfigs.uri.error);
     }
 };

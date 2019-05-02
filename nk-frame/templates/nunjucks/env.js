@@ -6,7 +6,7 @@
  */
 const nunjucks = require('nunjucks');
 const templateConfig = require('nk-project/configs/template');
-const filters = require('nk-project/templates/nunjucks/filters')
+const filters = require('nk-project/templates/nunjucks/filters');
 
 let viewPath = process.cwd() + '/views';
 let notProduction = process.env.NODE_ENV !== 'production';
