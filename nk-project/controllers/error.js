@@ -16,6 +16,7 @@ class ErrorController extends CommonController {
             ctx.render('error.html', {
                 'err_msg': ctx.request.query.err_msg || '未知错误'
             });
+            console.log('body:', ctx.body);
             await next();
         };
     }
