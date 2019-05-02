@@ -23,7 +23,7 @@ let controllerFile = '';
 let controller = '';
 let action = '';
 let actionName = '';
-Log.info('files:', routeMap);
+Log.info('files:', files);
 for (let i = 0; i < files.length; i++) {
     if (!files[i].endsWith('.js')) {
         continue;
