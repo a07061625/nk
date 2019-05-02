@@ -42,7 +42,7 @@ module.exports = () => async (ctx, next) => {
     if (!cacheData.hasOwnProperty(action)) {
         redirectUrl = ctx.request.protocol + '://' + ctx.request.host + projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在');
         Log.info('redirect:', redirectUrl);
-        ctx.redirect(projectConfig.uri.error + redirectUrl);
+        ctx.redirect(projectConfig.uri.error + '?err_msg=' + encodeURIComponent('方法不存在'));
         return;
     }
 
