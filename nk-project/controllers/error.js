@@ -11,9 +11,11 @@ class ErrorController extends CommonController {
         super();
     }
 
-    indexAction () {
+    errorAction () {
         return async (ctx, next) => {
-            ctx.render('error.html', {});
+            ctx.render('error.html', {
+                'err_msg': ctx.request.query.err_msg || '未知错误'
+            });
             await next();
         };
     }

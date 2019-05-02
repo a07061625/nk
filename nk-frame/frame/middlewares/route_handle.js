@@ -5,6 +5,7 @@
  * Time: 下午8:14
  */
 const fs = require('fs');
+const Log = require('nk-frame/logs/log');
 const KoaRouter = require('koa-router');
 const cacheRoute = require('nk-frame/caches/cache_route');
 
@@ -47,6 +48,7 @@ for (let i = 0; i < files.length; i++) {
         routeMap[action] = 1;
     }
     cacheRoute.set(controller, routeMap);
+    Log.info('map:', routeMap);
 }
 
 module.exports = routeObj;
