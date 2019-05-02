@@ -37,6 +37,7 @@ for (let i = 0; i < files.length; i++) {
     controller = files[i].substr(0, controllerFile.length - 3);
     controllerObj = require('nk-project/controllers/' + controller);
     controllerKeys = Object.keys(controllerObj);
+    Log.info('keys:', controllerKeys);
     for (let j = 0; j < controllerKeys.length; j++) {
         if (!controllerKeys[j].endsWith('Action')) {
             continue;
