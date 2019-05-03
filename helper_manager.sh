@@ -9,7 +9,7 @@ DIR_LOG=/home/logs/nodeforever
 # 框架公共库node模块目录
 DIR_LIB_FRAME_MODULE=$DIR_ROOT/node_modules/nk-frame
 # 框架公共库原始目录
-DIR_LIB_FRAME_ORIGIN=/home/jsspace/nk/nk-frame
+DIR_LIB_FRAME_ORIGIN=/home/jsspace/nk
 # 项目公共库node模块目录
 DIR_LIB_PROJECT_MODULE=$DIR_ROOT/node_modules/nk-project
 # 项目公共库原始目录
@@ -43,7 +43,7 @@ function refreshModule() {
         mkdir $DIR_LIB_FRAME_MODULE
     fi
     rm -rf $DIR_LIB_FRAME_MODULE/*
-    cp -rf $DIR_LIB_FRAME_ORIGIN/* $DIR_LIB_FRAME_MODULE
+    cp -rf $DIR_LIB_FRAME_ORIGIN/nk-frame/* $DIR_LIB_FRAME_MODULE
     # 项目公共库更新
     if [ ${#DIR_LIB_PROJECT_MODULE} -lt 5 ]; then
         echo "project module dir invalid"
@@ -131,10 +131,13 @@ case "$1" in
         ;;
     format)
         echo > $FILE_CHECK_RESULT
-        formatJs $DIR_LIB_FRAME_ORIGIN
+        formatJs $DIR_LIB_FRAME_ORIGIN/nk-frame
         formatJs $DIR_LIB_PROJECT_ORIGIN
         ;;
+    static)
+        cp -rf $DIR_LIB_FRAME_ORIGIN/nk-static/* $DIR_ROOT/static
+        ;;
     *)
-        echo "option must be init|start|stop|restart|refresh|build|format"
+        echo "option must be init|start|stop|restart|refresh|build|format|static"
         ;;
 esac

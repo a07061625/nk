@@ -99,3 +99,7 @@
     sh helper_manager.sh refresh
 ## webpack打包压缩(生产环境)
     sh helper_manager.sh build
+## js代码格式化
+    sh helper_manager.sh format
+## 更新框架静态资源
+    sh helper_manager.sh static
