@@ -67,9 +67,12 @@
 - promise-loader: v1.0.0+
 
 # 文件介绍
+**推荐将nk-frame目录和nk-static目录作为一个单独的项目统一维护管理**
+
 - dist: webpack打包存放文件目录
 - nk-project: 项目公共库目录,目录名不可变
-- nk-frame: 框架公共库目录,推荐单独将该目录作为一个项目进行维护
+- nk-frame: 框架公共库目录
+- nk-static: 框架公共静态资源目录
 - node_modules: node模块目录
 - static: 静态资源目录
 - views: 视图文件目录
