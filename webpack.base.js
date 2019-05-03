@@ -62,10 +62,10 @@ module.exports = {
         })
     ],
     optimization: {
-        // 分包
+        // 分包,拆分出多模块中公共的模块包
         splitChunks: {
             chunks: 'all',
-            minSize: 30000,
+            minSize: 1,
             maxSize: 0
         }
     }
