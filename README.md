@@ -37,7 +37,7 @@
 - lru-cache: v5.1.1+
 - nunjucks: v3.2.0+
 - utility: v1.16.1+
-## webpack环境(npm install --no-save)
+## webpack环境(npm install --save)
 - webpack: v4.30.0+
 - webpack-cli: v3.3.1+
 - glob: v7.1.3+
