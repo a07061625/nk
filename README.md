@@ -34,6 +34,7 @@
 - html-minifier: v4.0.0+
 - koa: v2.7.0+
 - koa-router: v7.4.0+
+- lodash: v4.17.11+
 - lru-cache: v5.1.1+
 - nunjucks: v3.2.0+
 - utility: v1.16.1+
@@ -62,6 +63,8 @@
 - mkdirp: v0.5.1+
 - peer: v0.2.10+
 - html-webpack-plugin: v3.2.0+
+- bundle-loader: v0.5.6+
+- promise-loader: v1.0.0+
 
 # 文件介绍
 - dist: webpack打包存放文件目录
