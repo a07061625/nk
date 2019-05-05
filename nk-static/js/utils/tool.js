@@ -75,7 +75,7 @@ function getYourIP(){
 
 /**
  * 获取浏览器类型
- * @returns {*}
+ * @returns {string}
  */
 function getBrowserType() {
     var userAgent = navigator.userAgent;
