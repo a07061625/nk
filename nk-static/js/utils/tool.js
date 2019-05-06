@@ -4,109 +4,138 @@
  * Date: 19-5-5
  * Time: 下午10:57
  */
-function GetLocalIPAddr() {
-    var oSetting = null;
-    var ip = null;
-    try {
-        oSetting = new ActiveXObject("rcbdyctl.Setting");
-        ip = oSetting.GetIPAddress;
-        if (ip.length == 0) {
-            return "没有连接到Internet";
+var Tool = {
+    'chars': [
+        '2', '3', '4', '5', '6', '7', '8', '9',
+        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'm', 'n', 'p', 'q', 'r',
+        's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+    ],
+
+    /**
+     * 生成随机字符串
+     * @param {int} length 字符串长度
+     * @return {string} 随机字符串
+     */
+    'createNonceStr': function (length) {
+        var str = '';
+        var pos = 0;
+        for (var i = 0; i < length; i++) {
+            pos = Math.round(Math.random() * 31);
+            str += this.chars[pos];
         }
-        oSetting = null;
-    } catch (e) {
-        return ip;
-    }
-    return ip;
-}
+        return str;
+    },
 
-function getYourIP(){
-    var RTCPeerConnection = window.RTCPeerConnection || window.webkitRTCPeerConnection || window.mozRTCPeerConnection;
-    if (RTCPeerConnection) (function () {
-        var rtc = new RTCPeerConnection({iceServers:[]});
-        if (1 || window.mozRTCPeerConnection) {
-            rtc.createDataChannel('', {reliable:false});
-        };
-
-        rtc.onicecandidate = function (evt) {
-            if (evt.candidate) grepSDP("a="+evt.candidate.candidate);
-        };
-        rtc.createOffer(function (offerDesc) {
-            grepSDP(offerDesc.sdp);
-            rtc.setLocalDescription(offerDesc);
-        }, function (e) { console.warn("offer failed", e); });
-
-
-        var addrs = Object.create(null);
-        addrs["0.0.0.0"] = false;
-        function updateDisplay(newAddr) {
-            if (newAddr in addrs) return;
-            else addrs[newAddr] = true;
-            var displayAddrs = Object.keys(addrs).filter(function (k) { return addrs[k]; });
-            for(var i = 0; i < displayAddrs.length; i++){
-                if(displayAddrs[i].length > 16){
-                    displayAddrs.splice(i, 1);
-                    i--;
-                }
+    /**
+     * 获取浏览器类型
+     * @return {string} 浏览器类型
+     */
+    'getBrowserType': function () {
+        var userAgent = window.navigator.userAgent;
+        if (/MicroMessenger/.test(userAgent)) {
+            return 'wx';
+        }
+        if (/AlipayClient/.test(userAgent)) {
+            return 'alipay';
+        }
+        if (userAgent.indexOf('Opera') > -1) {
+            return 'opera';
+        }
+        if ((userAgent.indexOf('compatible') > -1) && (userAgent.indexOf('MSIE') > -1)) {
+            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            reIE.test(userAgent);
+            var ieVersion = parseInt(RegExp.$1, 10);
+            if (ieVersion >= 7) {
+                return 'ie' + ieVersion.toString();
+            } else {
+                return 'ie';
             }
-            document.getElementById('list').textContent = displayAddrs[0];
         }
+        if ((userAgent.indexOf('trident') > -1) && (userAgent.indexOf('rv:11.0') > -1)) {
+            return 'ie11';
+        }
+        if (userAgent.indexOf('Edge') > -1) {
+            return 'edge';
+        }
+        if (userAgent.indexOf('Firefox') > -1) {
+            return 'firefox';
+        }
+        var chromeIndex = userAgent.indexOf('Chrome');
+        if ((userAgent.indexOf('Safari') > -1) && (chromeIndex < 0)) {
+            return 'safari';
+        }
+        if (chromeIndex > -1) {
+            return 'chrome';
+        }
+        return 'unknown';
+    },
 
-        function grepSDP(sdp) {
-            var hosts = [];
-            sdp.split('\r\n').forEach(function (line, index, arr) {
-                if (~line.indexOf("a=candidate")) {
-                    var parts = line.split(' '),
-                        addr = parts[4],
-                        type = parts[7];
-                    if (type === 'host') updateDisplay(addr);
-                } else if (~line.indexOf("c=")) {
-                    var parts = line.split(' '),
-                        addr = parts[2];
-                    updateDisplay(addr);
-                }
-            });
-        }
-    })();
-    else{
-        document.getElementById('list').textContent = "请使用主流浏览器：chrome,firefox,opera,safari";
-    }
-}
+    /**
+     * 去除字符串左边空格
+     * @param {string} str 字符串
+     * @return {string} 字符串
+     */
+    'ltrim': function (str) {
+        return str.replace(/^(\s|\u00A0)+/, '');
+    },
 
-/**
- * 获取浏览器类型
- * @returns {string}
- */
-function getBrowserType() {
-    var userAgent = navigator.userAgent;
-    if (userAgent.indexOf('Opera') > -1) {
-        return 'opera';
-    }
-    if ((userAgent.indexOf('compatible') > -1) && (userAgent.indexOf('MSIE') > -1)) {
-        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
-        reIE.test(userAgent);
-        var fIEVersion = parseInt(RegExp["$1"]);
-        if (fIEVersion >= 7) {
-            return 'ie' + fIEVersion.toString();
-        } else {
-            return 'ie';
+    /**
+     * 去除字符串右边空格
+     * @param {string} str 字符串
+     * @return {string} 字符串
+     */
+    'rtrim': function (str) {
+        return str.replace(/(\s|\u00A0)+$/, '');
+    },
+
+    /**
+     * 去除字符串前后空格
+     * @param {string} str 字符串
+     * @return {string} 字符串
+     */
+    'trim': function (str) {
+        return str.replace(/^(\s|\u00A0)+/, '').replace(/(\s|\u00A0)+$/, '');
+    },
+
+    /**
+     * 日期格式化
+     * @param {int} timestamp 毫秒级时间戳
+     * @param {string} format 格式字符串
+     * @return {string} 格式化后的日期
+     */
+    'dateFormat': function (timestamp, format) {
+        var nowDate = new Date(timestamp);
+        var o = {
+            'M+': nowDate.getMonth() + 1,
+            'd+': nowDate.getDate(),
+            'h+': nowDate.getHours(),
+            'm+': nowDate.getMinutes(),
+            's+': nowDate.getSeconds(),
+            'q+': Math.floor((nowDate.getMonth() + 3) / 3),
+            'S': nowDate.getMilliseconds()
+        };
+        var week = {
+            '0': '/u65e5',
+            '1': '/u4e00',
+            '2': '/u4e8c',
+            '3': '/u4e09',
+            '4': '/u56db',
+            '5': '/u4e94',
+            '6': '/u516d'
+        };
+
+        if (/(y+)/.test(format)) {
+            format = format.replace(RegExp.$1, (nowDate.getFullYear() + '').substr(4 - RegExp.$1.length));
         }
+        if (/(E+)/.test(format)) {
+            format = format.replace(RegExp.$1, ((RegExp.$1.length > 1) ? (RegExp.$1.length > 2 ? '/u661f/u671f' : '/u5468') : '') + week[nowDate.getDay() + '']);
+        }
+        for (var k in o) {
+            if (new RegExp('(' + k + ')').test(format)) {
+                format = format.replace(RegExp.$1, (RegExp.$1.length === 1) ? (o[k]) : (('00' + o[k]).substr(('' + o[k]).length)));
+            }
+        }
+        return format;
     }
-    if ((userAgent.indexOf('trident') > -1) && (userAgent.indexOf('rv:11.0') > -1)) {
-        return 'ie11';
-    }
-    if (userAgent.indexOf('Edge') > -1) {
-        return 'edge';
-    }
-    if (userAgent.indexOf('Firefox') > -1) {
-        return 'firefox';
-    }
-    var chromeIndex = userAgent.indexOf('Chrome');
-    if ((userAgent.indexOf('Safari') > -1) && (chromeIndex < 0)) {
-        return 'safari';
-    }
-    if (chromeIndex > -1) {
-        return 'chrome';
-    }
-    return 'unknown';
-}
+};
