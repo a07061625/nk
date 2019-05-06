@@ -17,7 +17,7 @@ var reportMsg = {
  * @param {array} data 参数数组
  * @return {string} 字符串
  */
-function reportFormatParams(data) {
+function reportFormatParams (data) {
     var arr = [];
     for (var name in data) {
         arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
@@ -103,25 +103,25 @@ function reportError (params) {
         return;
     }
     window.onerror = function (msg, url, line, col, error) {
-        //采用异步的方式,避免阻塞
+        // 采用异步的方式,避免阻塞
         setTimeout(function () {
-            //不一定所有浏览器都支持col参数，如果不支持就用window.event来兼容
+            // 不一定所有浏览器都支持col参数，如果不支持就用window.event来兼容
             col = col || (window.event && window.event.errorCharacter) || 0;
             reportMsg.url = url;
             reportMsg.line = line;
             reportMsg.col = col;
 
             if (error && error.stack) {
-                //如果浏览器有堆栈信息，直接使用
+                // 如果浏览器有堆栈信息，直接使用
                 reportMsg.msg = error.stack.toString();
             } else if (arguments.callee) {
-                //尝试通过callee拿堆栈信息
+                // 尝试通过callee拿堆栈信息
                 var ext = [];
                 var fn = arguments.callee.caller;
-                var floor = 3; //这里只拿三层堆栈信息
-                while (fn && (--floor>0)) {
+                var floor = 3; // 这里只拿三层堆栈信息
+                while (fn && (--floor > 0)) {
                     ext.push(fn.toString());
-                    if (fn === fn.caller) { //如果有环
+                    if (fn === fn.caller) { // 如果有环
                         break;
                     }
                     fn = fn.caller;

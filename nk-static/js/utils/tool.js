@@ -43,7 +43,7 @@ var Tool = {
             return 'opera';
         }
         if ((userAgent.indexOf('compatible') > -1) && (userAgent.indexOf('MSIE') > -1)) {
-            var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+            var reIE = new RegExp('MSIE (\\d+\\.\\d+);');
             reIE.test(userAgent);
             var ieVersion = parseInt(RegExp.$1, 10);
             if (ieVersion >= 7) {
