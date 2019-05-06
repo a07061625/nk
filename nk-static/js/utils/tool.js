@@ -101,7 +101,7 @@ var Tool = {
     /**
      * 日期格式化
      * @param {int} timestamp 毫秒级时间戳
-     * @param {string} format 格式字符串
+     * @param {string} format 格式字符串 yyyy-MM-dd hh:mm:ss.S
      * @return {string} 格式化后的日期
      */
     'dateFormat': function (timestamp, format) {
