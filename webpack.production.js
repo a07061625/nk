@@ -6,11 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
 productConfig.entry = {
-    app: glob.sync('./static/fonts/sltf_song2.ttf')
+    app: glob.sync('./static/js/index.js')
 };
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
-    filename: 'fonts/[name].[contenthash:8].ttf',
+    filename: 'js/[name].[contenthash:8].js',
     publicPath: 'http://120.79.139.64:8800/'
 };
 
