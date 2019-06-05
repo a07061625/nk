@@ -32,7 +32,7 @@ productConfig.module.rules.push({
         loader: 'ttf-loader',
         options: {
             limit: 1000,
-            name: './[hash:8].[ext]',
+            name: './includes/[hash:8].[ext]',
             outputPath: 'fonts/'
         }
     }]
