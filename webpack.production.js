@@ -32,6 +32,7 @@ productConfig.module.rules.push({
         loader: 'ttf-loader',
         options: {
             limit: 1000,
+            name: './static/fonts/[name].[ext]',
             outputPath: 'fonts/'
         }
     }]
