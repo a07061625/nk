@@ -6,11 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
 productConfig.entry = {
-    app: glob.sync('./static/js/ueditor/ueditor.parse.js')
+    app: glob.sync('./static/fonts/sltf_song2.ttf')
 };
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
-    filename: 'js/[name].[contenthash:8].js',
+    filename: 'fonts/[name].[contenthash:8].ttf',
     publicPath: 'http://120.79.139.64:8800/'
 };
 
@@ -22,6 +22,17 @@ productConfig.module.rules.push({
         options: {
             limit: 1000,
             outputPath: 'images/'
+        }
+    }]
+});
+// ttf处理
+productConfig.module.rules.push({
+    test: /\.ttf$/,
+    use: [{
+        loader: 'ttf-loader',
+        options: {
+            limit: 1000,
+            outputPath: 'fonts/'
         }
     }]
 });
