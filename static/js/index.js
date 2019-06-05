@@ -5,4 +5,4 @@
  * Time: 20:29
  */
 
-const myttf = require('../fonts/sltf_song2.ttf');
+let myttf = require('../fonts/sltf_song2.ttf');
