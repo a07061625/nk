@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
 productConfig.entry = {
-    app: glob.sync('./static/fonts/sltf_song2.ttf')
+    app: glob.sync('./static/fonts/aaa.ttf')
 };
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
@@ -32,7 +32,7 @@ productConfig.module.rules.push({
         loader: 'ttf-loader',
         options: {
             limit: 1000,
-            name: './includes/[hash:8].[ext]',
+            name: './includes/[contenthash:8].[ext]',
             outputPath: 'fonts/'
         }
     }]
