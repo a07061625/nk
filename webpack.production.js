@@ -6,11 +6,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
 productConfig.entry = {
-    app: glob.sync('./static/fonts/aaa.ttf')
+    app: glob.sync('./static/js/test.js')
 };
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
-    filename: 'fonts/[name].[contenthash:8].ttf',
+    filename: 'js/[name].[contenthash:8].js',
     publicPath: 'http://120.79.139.64:8800/'
 };
 
@@ -25,18 +25,18 @@ productConfig.module.rules.push({
         }
     }]
 });
-// ttf处理
-productConfig.module.rules.push({
-    test: /\.ttf$/,
-    use: [{
-        loader: 'ttf-loader',
-        options: {
-            limit: 1000,
-            name: './includes/[contenthash:8].[ext]',
-            outputPath: 'fonts/'
-        }
-    }]
-});
+// // ttf处理
+// productConfig.module.rules.push({
+//     test: /\.ttf$/,
+//     use: [{
+//         loader: 'ttf-loader',
+//         options: {
+//             limit: 1000,
+//             name: './includes/[contenthash:8].[ext]',
+//             outputPath: 'fonts/'
+//         }
+//     }]
+// });
 // 消除未使用的CSS
 productConfig.plugins.push(new PurifyCSSPlugin({
     paths: glob.sync('./views/*/*.html')
