@@ -32,6 +32,12 @@ module.exports = {
                 ]
             },
             {
+                test: /\.ttf$/,
+                use: [
+                    'ttf-loader'
+                ]
+            },
+            {
                 test: /\.(htm|html)$/i,
                 use: ['html-withimg-loader']
             }
