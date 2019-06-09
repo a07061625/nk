@@ -2,7 +2,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const webpack = require('webpack');
 
 module.exports = {
     module: {
@@ -72,7 +71,6 @@ module.exports = {
             },
             canPrint: false // 是否打印编译过程中的日志
         }),
-        new webpack.HashedModuleIdsPlugin(), // 根据模块的相对路径生成 HASH 作为模块 ID
     ],
     optimization: {
         //分包,拆分出多模块中公共的模块包
