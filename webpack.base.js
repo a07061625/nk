@@ -33,9 +33,14 @@ module.exports = {
             },
             {
                 test: /\.ttf$/,
-                use: [
-                    'ttf-loader'
-                ]
+                use: [{
+                    loader: 'ttf-loader',
+                    options: {
+                        limit: 1024,
+                        name: './includes/[contenthash:8].[ext]',
+                        outputPath: 'fonts/'
+                    }
+                }]
             },
             {
                 test: /\.(htm|html)$/i,
