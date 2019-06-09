@@ -25,18 +25,6 @@ productConfig.module.rules.push({
         }
     }]
 });
-// // ttf处理
-// productConfig.module.rules.push({
-//     test: /\.ttf$/,
-//     use: [{
-//         loader: 'ttf-loader',
-//         options: {
-//             limit: 1000,
-//             name: './includes/[contenthash:8].[ext]',
-//             outputPath: 'fonts/'
-//         }
-//     }]
-// });
 // 消除未使用的CSS
 productConfig.plugins.push(new PurifyCSSPlugin({
     paths: glob.sync('./views/*/*.html')
