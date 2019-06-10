@@ -82,12 +82,12 @@ module.exports = {
             minChunks: 1, //最小引用次数
             cacheGroups: {
                 vendor: {
+                    priority: 1, // 该配置项是设置处理的优先级,数值越大越优先处理
                     test: /[\\/]node_modules[\\/]/, //如果需要的依赖特别小,可以直接设置成需要打包的依赖名称
                     name(module, chunks, chcheGroupKey) {// 可提供布尔值、字符串和函数,如果是函数,可编写自定义返回值
                         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]; //获取模块名称
                         return `npm.${packageName.replace('@', '')}`;//可选,一般情况下不需要将模块名称 @ 符号去除
-                    },
-                    priority: 1 // 该配置项是设置处理的优先级,数值越大越优先处理
+                    }
                 },
                 commons: {
                     test: /[\\/]src[\\/]common[\\/]/,
