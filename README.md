@@ -30,7 +30,9 @@
 - webpack: v4.30.0+
 - webpack-cli: v3.3.1+
 ## 项目环境(npm install --save)
+- async: v3.1.0+
 - axios: v0.18.0+
+- eventproxy: v1.0.0+
 - html-minifier: v4.0.0+
 - koa: v2.7.0+
 - koa-router: v7.4.0+
