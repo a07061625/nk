@@ -87,13 +87,19 @@ module.exports = {
                     name(module, chunks, chcheGroupKey) {// 可提供布尔值、字符串和函数,如果是函数,可编写自定义返回值
                         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]; //获取模块名称
                         return `npm.${packageName.replace('@', '')}`;//可选,一般情况下不需要将模块名称 @ 符号去除
-                    }
+                    },
+                    chunks: 'initial',
+                    minSize: 0, //大于0个字节
+                    minChunks: 2 //抽离公共代码时，这个代码块最小被引用的次数
                 },
                 commons: {
                     test: /[\\/]src[\\/]common[\\/]/,
                     name: 'commons',
                     priority: -1,
-                    reuseExistingChunk: true // 这个配置允许我们使用已经存在的代码块
+                    reuseExistingChunk: true, // 这个配置允许我们使用已经存在的代码块
+                    chunks: 'initial',
+                    minSize: 0, //大于0个字节
+                    minChunks: 2 //抽离公共代码时，这个代码块最小被引用的次数
                 }
             }
         }
