@@ -94,7 +94,7 @@ module.exports = {
                 },
                 commons: {
                     test: /[\\/]src[\\/]common[\\/]/,
-                    name: 'commons',
+                    name: 'common-[contenthash:8]',
                     priority: -1,
                     reuseExistingChunk: true, // 这个配置允许我们使用已经存在的代码块
                     chunks: 'initial',
