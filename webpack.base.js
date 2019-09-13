@@ -96,7 +96,7 @@ module.exports = {
                 commons: {
                     priority: 1,
                     test: /[\\/]src[\\/]common[\\/]/,
-                    name: 'common-[contenthash:8]'
+                    name: 'common'
                 }
             }
         }
