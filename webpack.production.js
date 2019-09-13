@@ -11,6 +11,7 @@ productConfig.entry = {
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
     filename: 'js/[name].[contenthash:8].js',
+    chunkFilename: 'js/[name].[contenthash:8].chunk.js',
     publicPath: 'http://120.79.139.64:8800/'
 };
 
