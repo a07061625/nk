@@ -77,7 +77,6 @@ module.exports = {
         splitChunks: {
             chunks: 'all', //async:只从异步加载得模块（动态加载import()）里面进行拆分 initial:只从入口模块进行拆分 all:以上两者都包括
             maxInitialRequests: Infinity, //一个入口最大的并行请求数
-            maxSize: 1024,
             cacheGroups: {
                 default: {
                     chunks: 'all',
