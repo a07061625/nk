@@ -3,8 +3,8 @@
 .cloud-zoom-lens {
 	border: 4px solid #888;
 	margin:-4px;	/* Set this to minus the border thickness. */
-	background-color:#fff;	
-	cursor:move;		
+	background-color:#fff;
+	cursor:move;
 }
 
 /* This is for the title text. */
@@ -15,10 +15,17 @@
 	color:#fff;
 	padding:3px;
 	width:100%;
-	text-align:center;	
+	text-align:center;
 	font-weight:bold;
 	font-size:10px;
 	top:0px;
+}
+
+/* cloud zoom wrapper styles */
+.cloud-zoom-wrap {
+    top:0;
+    z-index:9999;
+    position:relative;
 }
 
 /* This is the zoom window. */
@@ -29,7 +36,7 @@
 
 /* This is the loading message. */
 .cloud-zoom-loading {
-	color:white;	
+	color:white;
 	background:#222;
 	padding:3px;
 	border:1px solid #000;
