@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 module.exports = {
+    devtool: 'inline-source-map', // 报错会指定错误位置和所属文件
     module: {
         rules: [
             {
