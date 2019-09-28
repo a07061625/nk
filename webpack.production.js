@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
 productConfig.entry = {
-    app: glob.sync('./static/js/test.js')
+    app: glob.sync('./static/project/js/test.js')
 };
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
