@@ -12,7 +12,7 @@ class CacheLru {
     /**
      * @param {string} tag 标识
      */
-    constructor (tag) {
+    constructor(tag) {
         this.obj = new LRU(lruConfig.lru[tag]);
     }
 
@@ -21,7 +21,7 @@ class CacheLru {
      * @param {string} key 键名
      * @returns {*} 数据
      */
-    get (key) {
+    get(key) {
         let data = this.obj.get(key);
         if (typeof data === 'undefined') {
             return null;
@@ -35,7 +35,7 @@ class CacheLru {
      * @param {*} value 键值
      * @returns {boolean} 设置结果
      */
-    set (key, value) {
+    set(key, value) {
         if ((value === null) || (typeof value === 'undefined')) {
             return false;
         }
@@ -48,7 +48,7 @@ class CacheLru {
      * @param {string} key 键名
      * @returns {*|boolean} 检测结果
      */
-    exist (key) {
+    exist(key) {
         return this.obj.has(key);
     }
 
@@ -57,7 +57,7 @@ class CacheLru {
      * @param {string} key 键名
      * @returns {*} 删除结果
      */
-    del (key) {
+    del(key) {
         return this.obj.del(key);
     }
 
@@ -65,7 +65,7 @@ class CacheLru {
      * 清空缓存
      * @returns {*} 清空结果
      */
-    reset () {
+    reset() {
         return this.obj.reset();
     }
 }

@@ -12,7 +12,7 @@ class Log {
      * @param {*} msg 日志信息
      * @return {void}
      */
-    static error (tag, msg) {
+    static error(tag, msg) {
         this.log(tag, msg, this.LEVEL_ERROR);
     }
 
@@ -22,7 +22,7 @@ class Log {
      * @param {*} msg 日志信息
      * @return {void}
      */
-    static info (tag, msg) {
+    static info(tag, msg) {
         this.log(tag, msg, this.LEVEL_INFO);
     }
 
@@ -32,7 +32,7 @@ class Log {
      * @param {*} msg 日志信息
      * @return {void}
      */
-    static warn (tag, msg) {
+    static warn(tag, msg) {
         this.log(tag, msg, this.LEVEL_WARNING);
     }
 
@@ -43,7 +43,7 @@ class Log {
      * @param {string} level 日志级别
      * @return {void}
      */
-    static log (tag, msg, level = 'INFO') {
+    static log(tag, msg, level = 'INFO') {
         let logPrefix = new Date().toLocaleString() + ' | ' + level + ' | ' + tag + ' | \n ';
         if (msg instanceof Error) {
             let nowMsg = msg.stack || msg.toString();

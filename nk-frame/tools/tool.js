@@ -7,6 +7,8 @@
 const CHAR_TOTAL = Symbol('tool-char-tool');
 const CHAR_NUMLOWER = Symbol('tool-char-numlower');
 const CHAR_LOWER = Symbol('tool-char-lower');
+const axios = require('axios');
+const requestConfig = require('nk-project/configs/request');
 
 class Tool {
 
@@ -16,7 +18,7 @@ class Tool {
      * @param {string} dataType 数据类型 total:数字和字母 numlower:数字和小写字母 lower:小写字母
      * @returns {string} 随机字符串
      */
-    static createNonceStr (length, dataType = 'total') {
+    static createNonceStr(length, dataType = 'total') {
         let str = '';
         let pos = 0;
         if (dataType === 'total') {
@@ -49,7 +51,7 @@ class Tool {
      * @param {*} defVal 默认值
      * @returns {*} 配置
      */
-    static getConfigs (file, key = '', defVal = null) {
+    static getConfigs(file, key = '', defVal = null) {
         let configs = require(file);
         if (key.length > 0) {
             let keyList = key.split('.');
@@ -72,11 +74,28 @@ class Tool {
      * @param {object} obj JSON对象
      * @returns {boolean} 判断结果
      */
-    static isEmptyJson (obj) {
+    static isEmptyJson(obj) {
         for (let name in obj) {
             return false;
         }
         return true;
+    }
+
+    /**
+     * 获取请求实例
+     * @param {string} tag 配置标识
+     * @return {object} 请求实例
+     */
+    static getRequestInstance(tag) {
+        let config = requestConfig[tag];
+        let instance = axios.create(config.create);
+        for (let reqName in config.request_middleware) {
+            instance.interceptors.request.use(config.request_middleware[reqName]);
+        }
+        for (let resName in config.response_middleware) {
+            instance.interceptors.response.use(config.response_middleware[resName]);
+        }
+        return instance;
     }
 }
 Tool[CHAR_TOTAL] = [

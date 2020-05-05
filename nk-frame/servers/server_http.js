@@ -27,7 +27,7 @@ const APP = Symbol('server-app');
  * Http服务类
  */
 class HttpServer {
-    constructor () {
+    constructor() {
         this[HOST] = httpConfig.host;
         this[PORT] = httpConfig.port;
         this[APP] = new Koa();
@@ -45,11 +45,11 @@ class HttpServer {
         this[APP].use(mwActionExit());
     }
 
-    get host () {
+    get host() {
         return this[HOST];
     }
 
-    get port () {
+    get port() {
         return this[PORT];
     }
 
@@ -57,7 +57,7 @@ class HttpServer {
      * 启动服务
      * @return {void}
      */
-    startServer () {
+    startServer() {
         http.createServer(this[APP].callback())
             .on('error', (error) => {
                 Log.error('http-error', error);
