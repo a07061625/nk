@@ -8,7 +8,6 @@ const LRU = require('lru-cache');
 const lruConfig = require('nk-project/configs/cache');
 
 class CacheLru {
-
     /**
      * @param {string} tag 标识
      */

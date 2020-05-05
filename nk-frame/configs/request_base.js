@@ -108,7 +108,7 @@ module.exports = {
             //     }
             // }
         },
-        'request_middleware': {},
-        'response_middleware': {},
+        'requestMiddleware': {},
+        'responseMiddleware': {},
     }
 };

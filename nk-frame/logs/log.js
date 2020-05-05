@@ -5,7 +5,6 @@
  * Time: 14:57
  */
 class Log {
-
     /**
      * 打印错误日志
      * @param {string} tag 标识

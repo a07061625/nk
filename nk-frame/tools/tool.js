@@ -11,7 +11,6 @@ const axios = require('axios');
 const requestConfig = require('nk-project/configs/request');
 
 class Tool {
-
     /**
      * 生成随机字符串
      * @param {number} length 字符串长度
@@ -89,11 +88,11 @@ class Tool {
     static getRequestInstance(tag) {
         let config = requestConfig[tag];
         let instance = axios.create(config.create);
-        for (let reqName in config.request_middleware) {
-            instance.interceptors.request.use(config.request_middleware[reqName]);
+        for (let reqName in config.requestMiddleware) {
+            instance.interceptors.request.use(config.requestMiddleware[reqName]);
         }
-        for (let resName in config.response_middleware) {
-            instance.interceptors.response.use(config.response_middleware[resName]);
+        for (let resName in config.responseMiddleware) {
+            instance.interceptors.response.use(config.responseMiddleware[resName]);
         }
         return instance;
     }

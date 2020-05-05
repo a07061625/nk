@@ -6,7 +6,6 @@
  */
 // 过滤器名都是以nk开头
 module.exports = {
-
     /**
      * 字符串省略
      * @param {string} str 输入的字符串
