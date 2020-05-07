@@ -2,20 +2,18 @@
 set -o nounset
 set -o errexit
 
+. ./project.sh
+
 # 项目根目录
 DIR_ROOT=`pwd`
 # 日志根目录
 DIR_LOG=/home/logs/nodeforever
 # 框架公共库node模块目录
 DIR_LIB_FRAME_MODULE=$DIR_ROOT/node_modules/nk-frame
-# 框架公共库原始目录
-DIR_LIB_FRAME_ORIGIN=/home/jsspace/nk
 # 项目公共库node模块目录
 DIR_LIB_PROJECT_MODULE=$DIR_ROOT/node_modules/nk-project
 # 项目公共库原始目录
 DIR_LIB_PROJECT_ORIGIN=$DIR_ROOT/nk-project
-# 项目标识 nk+3位由数字字母组成的字符串
-PROJECT_TAG=nka01
 # 进程ID文件后缀
 SUFFIX_PID=".pid"
 # 日志文件后缀
