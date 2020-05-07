@@ -7,8 +7,6 @@ set -o errexit
 
 # 项目根目录
 DIR_ROOT=`pwd`
-# 日志根目录
-DIR_LOG=/home/logs/nodeforever
 # 框架公共库node模块目录
 DIR_LIB_FRAME_MODULE=$DIR_ROOT/node_modules/nk-frame
 # 项目公共库node模块目录
