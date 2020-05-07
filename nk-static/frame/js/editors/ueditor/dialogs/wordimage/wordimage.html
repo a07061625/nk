@@ -68,12 +68,12 @@
                 uploadDataFieldName: optImageFieldName,    // POST请求中图片数据的key
                 picDescFieldName:'pictitle',      // POST请求中图片描述的key
                 maxSize: maxSize,                         // 文件的最大体积,单位M
-                compressSize:1,                   // 上传前如果图片体积超过该值，会先压缩,单位M
+                compressSize:1,                   // 上传前如果图片体积超过该值,会先压缩,单位M
                 maxNum:32,                         // 单次最大可上传多少个文件
-                compressSide: 0,                 //等比压缩的基准，0为按照最长边，1为按照宽度，2为按照高度
-                compressLength: optImageCompressBorder        //能接受的最大边长，超过该值Flash会自动等比压缩
+                compressSide: 0,                 //等比压缩的基准,0为按照最长边,1为按照宽度,2为按照高度
+                compressLength: optImageCompressBorder        //能接受的最大边长,超过该值Flash会自动等比压缩
             };
-            //回调函数集合，支持传递函数名的字符串、函数句柄以及函数本身三种类型
+            //回调函数集合,支持传递函数名的字符串、函数句柄以及函数本身三种类型
             var callbacks={
                 selectFileCallback: function(selectFiles){                // 选择文件的回调
                     selectedImageCount += selectFiles.length;

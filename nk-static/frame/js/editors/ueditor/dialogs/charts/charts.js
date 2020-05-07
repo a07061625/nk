@@ -14,7 +14,7 @@ window.onload = function () {
 
     editorTable = domUtils.findParentByTagName( editor.selection.getRange().startContainer, 'table', true);
 
-    //未找到表格， 显示错误页面
+    //未找到表格, 显示错误页面
     if ( !editorTable ) {
         document.body.innerHTML = "<div class='edui-charts-not-data'>未找到数据</div>";
         return;
@@ -60,7 +60,7 @@ function initChartsTypeView () {
 
 }
 
-//渲染table， 以便用户修改数据
+//渲染table, 以便用户修改数据
 function renderTable ( table ) {
 
     var tableHtml = [];
@@ -180,7 +180,7 @@ function initEvent () {
 
         currentChartType = index | 0;
 
-        //饼图， 禁用部分配置
+        //饼图, 禁用部分配置
         if ( currentChartType === chartsConfig.length - 1 ) {
 
             disableNotPieConfig();

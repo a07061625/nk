@@ -310,9 +310,9 @@
                 $wrap = _this.$wrap,
             // 图片容器
                 $queue = $wrap.find('.filelist'),
-            // 状态栏，包括进度和控制按钮
+            // 状态栏,包括进度和控制按钮
                 $statusBar = $wrap.find('.statusBar'),
-            // 文件总体选择信息。
+            // 文件总体选择信息.
                 $info = $statusBar.find('.info'),
             // 上传按钮
                 $upload = $wrap.find('.uploadBtn'),
@@ -320,7 +320,7 @@
                 $filePickerBtn = $wrap.find('.filePickerBtn'),
             // 上传按钮
                 $filePickerBlock = $wrap.find('.filePickerBlock'),
-            // 没选择文件之前的内容。
+            // 没选择文件之前的内容.
                 $placeHolder = $wrap.find('.placeholder'),
             // 总体进度条
                 $progress = $statusBar.find('.progress').hide(),
@@ -335,7 +335,7 @@
                 thumbnailHeight = 113 * ratio,
             // 可能有pedding, ready, uploading, confirm, done.
                 state = '',
-            // 所有文件的进度信息，key为file id
+            // 所有文件的进度信息,key为file id
                 percentages = {},
                 supportTransition = (function () {
                     var s = document.createElement('p').style,
@@ -380,13 +380,13 @@
                 compress: editor.getOpt('imageCompressEnable') ? {
                     width: imageCompressBorder,
                     height: imageCompressBorder,
-                    // 图片质量，只有type为`image/jpeg`的时候才有效。
+                    // 图片质量,只有type为`image/jpeg`的时候才有效.
                     quality: 90,
-                    // 是否允许放大，如果想要生成小图的时候不失真，此选项应该设置为false.
+                    // 是否允许放大,如果想要生成小图的时候不失真,此选项应该设置为false.
                     allowMagnify: false,
-                    // 是否允许裁剪。
+                    // 是否允许裁剪.
                     crop: false,
-                    // 是否保留头部meta信息。
+                    // 是否保留头部meta信息.
                     preserveHeaders: true
                 }:false
             });
@@ -400,7 +400,7 @@
 
             setState('pedding');
 
-            // 当有文件添加进来时执行，负责view的创建
+            // 当有文件添加进来时执行,负责view的创建
             function addFile(file) {
                 var $li = $('<li id="' + file.id + '">' +
                         '<p class="title">' + file.name + '</p>' +

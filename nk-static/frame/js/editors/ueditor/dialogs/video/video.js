@@ -68,7 +68,7 @@
     }
 
     /**
-     * 监听确认和取消两个按钮事件，用户执行插入或者清空正在播放的视频实例操作
+     * 监听确认和取消两个按钮事件,用户执行插入或者清空正在播放的视频实例操作
      */
     function addOkListener(){
         dialog.onok = function(){
@@ -185,7 +185,7 @@
 
     /**
       * 检测传入的所有input框中输入的长宽是否是正数
-      * @param nodes input框集合，
+      * @param nodes input框集合,
       */
      function checkNum( nodes ) {
          for ( var i = 0, ci; ci = nodes[i++]; ) {
@@ -335,9 +335,9 @@
                 $wrap = _this.$wrap,
             // 图片容器
                 $queue = $wrap.find('.filelist'),
-            // 状态栏，包括进度和控制按钮
+            // 状态栏,包括进度和控制按钮
                 $statusBar = $wrap.find('.statusBar'),
-            // 文件总体选择信息。
+            // 文件总体选择信息.
                 $info = $statusBar.find('.info'),
             // 上传按钮
                 $upload = $wrap.find('.uploadBtn'),
@@ -345,7 +345,7 @@
                 $filePickerBtn = $wrap.find('.filePickerBtn'),
             // 上传按钮
                 $filePickerBlock = $wrap.find('.filePickerBlock'),
-            // 没选择文件之前的内容。
+            // 没选择文件之前的内容.
                 $placeHolder = $wrap.find('.placeholder'),
             // 总体进度条
                 $progress = $statusBar.find('.progress').hide(),
@@ -360,7 +360,7 @@
                 thumbnailHeight = 113 * ratio,
             // 可能有pedding, ready, uploading, confirm, done.
                 state = '',
-            // 所有文件的进度信息，key为file id
+            // 所有文件的进度信息,key为file id
                 percentages = {},
                 supportTransition = (function () {
                     var s = document.createElement('p').style,
@@ -408,7 +408,7 @@
 
             setState('pedding');
 
-            // 当有文件添加进来时执行，负责view的创建
+            // 当有文件添加进来时执行,负责view的创建
             function addFile(file) {
                 var $li = $('<li id="' + file.id + '">' +
                         '<p class="title">' + file.name + '</p>' +

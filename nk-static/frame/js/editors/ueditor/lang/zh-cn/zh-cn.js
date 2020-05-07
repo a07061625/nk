@@ -45,7 +45,7 @@ UE.I18N['zh-cn'] = {
         'disc':'● 小黑点',
         'square':'■ 小方块 ',
         'dash' :'— 破折号',
-        'dot':' 。 小圆圈'
+        'dot':' . 小圆圈'
     },
     'paragraph':{'p':'段落', 'h1':'标题 1', 'h2':'标题 2', 'h3':'标题 3', 'h4':'标题 4', 'h5':'标题 5', 'h6':'标题 6'},
     'fontfamily':{
@@ -73,7 +73,7 @@ UE.I18N['zh-cn'] = {
         'jsonEncodeError': '服务器返回格式错误',
         'loading':"正在上传...",
         'loadError':"上传错误",
-        'errorLoadConfig': '后端配置项没有正常加载，上传插件不能正常使用！'
+        'errorLoadConfig': '后端配置项没有正常加载,上传插件不能正常使用！'
     },
     'simpleupload':{
         'exceedSizeError': '文件大小超出限制',
@@ -81,24 +81,24 @@ UE.I18N['zh-cn'] = {
         'jsonEncodeError': '服务器返回格式错误',
         'loading':"正在上传...",
         'loadError':"上传错误",
-        'errorLoadConfig': '后端配置项没有正常加载，上传插件不能正常使用！'
+        'errorLoadConfig': '后端配置项没有正常加载,上传插件不能正常使用！'
     },
     'elementPathTip':"元素路径",
     'wordCountTip':"字数统计",
-    'wordCountMsg':'当前已输入{#count}个字符, 您还可以输入{#leave}个字符。 ',
-    'wordOverFlowMsg':'<span style="color:red;">字数超出最大允许值，服务器可能拒绝保存！</span>',
+    'wordCountMsg':'当前已输入{#count}个字符, 您还可以输入{#leave}个字符. ',
+    'wordOverFlowMsg':'<span style="color:red;">字数超出最大允许值,服务器可能拒绝保存！</span>',
     'ok':"确认",
     'cancel':"取消",
     'closeDialog':"关闭对话框",
     'tableDrag':"表格拖动必须引入uiUtils.js文件！",
-    'autofloatMsg':"工具栏浮动依赖编辑器UI，您首先需要引入UI文件!",
-    'loadconfigError': '获取后台配置项请求出错，上传功能将不能正常使用！',
-    'loadconfigFormatError': '后台配置项返回格式出错，上传功能将不能正常使用！',
-    'loadconfigHttpError': '请求后台配置项http错误，上传功能将不能正常使用！',
+    'autofloatMsg':"工具栏浮动依赖编辑器UI,您首先需要引入UI文件!",
+    'loadconfigError': '获取后台配置项请求出错,上传功能将不能正常使用！',
+    'loadconfigFormatError': '后台配置项返回格式出错,上传功能将不能正常使用！',
+    'loadconfigHttpError': '请求后台配置项http错误,上传功能将不能正常使用！',
     'snapScreen_plugin':{
         'browserMsg':"仅支持IE浏览器！",
-        'callBackErrorMsg':"服务器返回数据有误，请检查配置项之后重试。",
-        'uploadErrorMsg':"截图上传失败，请检查服务器端环境! "
+        'callBackErrorMsg':"服务器返回数据有误,请检查配置项之后重试.",
+        'uploadErrorMsg':"截图上传失败,请检查服务器端环境! "
     },
     'insertcode':{
         'as3':'ActionScript 3',
@@ -290,32 +290,32 @@ UE.I18N['zh-cn'] = {
         'uploadTurnRight':'向右旋转',
         'uploadPreview':'预览中',
         'uploadNoPreview':'不能预览',
-        'updateStatusReady': '选中_张图片，共_KB。',
-        'updateStatusConfirm': '已成功上传_张照片，_张照片上传失败',
-        'updateStatusFinish': '共_张（_KB），_张上传成功',
-        'updateStatusError': '，_张上传失败。',
-        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器，请尝试升级 flash 播放器。',
-        'errorLoadConfig': '后端配置项没有正常加载，上传插件不能正常使用！',
+        'updateStatusReady': '选中_张图片,共_KB.',
+        'updateStatusConfirm': '已成功上传_张照片,_张照片上传失败',
+        'updateStatusFinish': '共_张(_KB),_张上传成功',
+        'updateStatusError': ',_张上传失败.',
+        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器,请尝试升级 flash 播放器.',
+        'errorLoadConfig': '后端配置项没有正常加载,上传插件不能正常使用！',
         'errorExceedSize':'文件大小超出',
         'errorFileType':'文件格式不允许',
         'errorInterrupt':'文件传输中断',
-        'errorUploadRetry':'上传失败，请重试',
+        'errorUploadRetry':'上传失败,请重试',
         'errorHttp':'http请求错误',
         'errorServerUpload':'服务器返回出错',
         'remoteLockError':"宽高不正确,不能所定比例",
-        'numError':"请输入正确的长度或者宽度值！例如：123，400",
+        'numError':"请输入正确的长度或者宽度值！例如：123,400",
         'imageUrlError':"不允许的图片格式或者图片域！",
         'imageLoadError':"图片加载失败！请检查链接地址或网络状态！",
         'searchRemind':"请输入搜索关键词",
-        'searchLoading':"图片加载中，请稍后……",
-        'searchRetry':" :( ，抱歉，没有找到图片！请重试一次！"
+        'searchLoading':"图片加载中,请稍后……",
+        'searchRetry':" :( ,抱歉,没有找到图片！请重试一次！"
     },
     'attachment':{
         'static':{
             'lang_tab_upload': '上传附件',
             'lang_tab_online': '在线附件',
             'lang_start_upload':"开始上传",
-            'lang_drop_remind':"可以将文件拖到这里，单次最多可选100个文件"
+            'lang_drop_remind':"可以将文件拖到这里,单次最多可选100个文件"
         },
         'uploadSelectFile':'点击选择文件',
         'uploadAddFile':'继续添加',
@@ -327,16 +327,16 @@ UE.I18N['zh-cn'] = {
         'uploadTurnLeft':'向左旋转',
         'uploadTurnRight':'向右旋转',
         'uploadPreview':'预览中',
-        'updateStatusReady': '选中_个文件，共_KB。',
-        'updateStatusConfirm': '已成功上传_个文件，_个文件上传失败',
-        'updateStatusFinish': '共_个（_KB），_个上传成功',
-        'updateStatusError': '，_张上传失败。',
-        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器，请尝试升级 flash 播放器。',
-        'errorLoadConfig': '后端配置项没有正常加载，上传插件不能正常使用！',
+        'updateStatusReady': '选中_个文件,共_KB.',
+        'updateStatusConfirm': '已成功上传_个文件,_个文件上传失败',
+        'updateStatusFinish': '共_个(_KB),_个上传成功',
+        'updateStatusError': ',_张上传失败.',
+        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器,请尝试升级 flash 播放器.',
+        'errorLoadConfig': '后端配置项没有正常加载,上传插件不能正常使用！',
         'errorExceedSize':'文件大小超出',
         'errorFileType':'文件格式不允许',
         'errorInterrupt':'文件传输中断',
-        'errorUploadRetry':'上传失败，请重试',
+        'errorUploadRetry':'上传失败,请重试',
         'errorHttp':'http请求错误',
         'errorServerUpload':'服务器返回出错'
     },
@@ -365,23 +365,23 @@ UE.I18N['zh-cn'] = {
             'lang_format_advice':"建议使用mp4格式."
 
         },
-        'numError':"请输入正确的数值，如123,400",
+        'numError':"请输入正确的数值,如123,400",
         'floatLeft':"左浮动",
         'floatRight':"右浮动",
         '"default"':"默认",
         'block':"独占一行",
-        'urlError':"输入的视频地址有误，请检查后再试！",
-        'loading':" &nbsp;视频加载中，请等待……",
+        'urlError':"输入的视频地址有误,请检查后再试！",
+        'loading':" &nbsp;视频加载中,请等待……",
         'clickToSelect':"点击选中",
         'goToSource':'访问源视频',
-        'noVideo':" &nbsp; &nbsp;抱歉，找不到对应的视频，请重试！",
+        'noVideo':" &nbsp; &nbsp;抱歉,找不到对应的视频,请重试！",
 
         'browseFiles':'浏览文件',
         'uploadSuccess':'上传成功!',
         'delSuccessFile':'从成功队列中移除',
         'delFailSaveFile':'移除保存失败文件',
         'statusPrompt':' 个文件已上传！ ',
-        'flashVersionError':'当前Flash版本过低，请更新FlashPlayer后重试！',
+        'flashVersionError':'当前Flash版本过低,请更新FlashPlayer后重试！',
         'flashLoadingError':'Flash加载失败!请检查路径或网络状态',
         'fileUploadReady':'等待上传……',
         'delUploadQueue':'从上传队列中移除',
@@ -392,15 +392,15 @@ UE.I18N['zh-cn'] = {
         'emptyFile':'空文件无法上传！',
         'fileTypeError':'文件类型不允许！',
         'unknownError':'未知错误！',
-        'fileUploading':'上传中，请等待……',
+        'fileUploading':'上传中,请等待……',
         'cancelUpload':'取消上传',
         'netError':'网络错误',
         'failUpload':'上传失败!',
         'serverIOError':'服务器IO错误！',
         'noAuthority':'无权限！',
         'fileNumLimit':'上传个数限制',
-        'failCheck':'验证失败，本次上传被跳过！',
-        'fileCanceling':'取消中，请等待……',
+        'failCheck':'验证失败,本次上传被跳过！',
+        'fileCanceling':'取消中,请等待……',
         'stopUploading':'上传已停止……',
 
         'uploadSelectFile':'点击选择文件',
@@ -413,21 +413,21 @@ UE.I18N['zh-cn'] = {
         'uploadTurnLeft':'向左旋转',
         'uploadTurnRight':'向右旋转',
         'uploadPreview':'预览中',
-        'updateStatusReady': '选中_个文件，共_KB。',
-        'updateStatusConfirm': '成功上传_个，_个失败',
-        'updateStatusFinish': '共_个(_KB)，_个成功上传',
-        'updateStatusError': '，_张上传失败。',
-        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器，请尝试升级 flash 播放器。',
-        'errorLoadConfig': '后端配置项没有正常加载，上传插件不能正常使用！',
+        'updateStatusReady': '选中_个文件,共_KB.',
+        'updateStatusConfirm': '成功上传_个,_个失败',
+        'updateStatusFinish': '共_个(_KB),_个成功上传',
+        'updateStatusError': ',_张上传失败.',
+        'errorNotSupport': 'WebUploader 不支持您的浏览器！如果你使用的是IE浏览器,请尝试升级 flash 播放器.',
+        'errorLoadConfig': '后端配置项没有正常加载,上传插件不能正常使用！',
         'errorExceedSize':'文件大小超出',
         'errorFileType':'文件格式不允许',
         'errorInterrupt':'文件传输中断',
-        'errorUploadRetry':'上传失败，请重试',
+        'errorUploadRetry':'上传失败,请重试',
         'errorHttp':'http请求错误',
         'errorServerUpload':'服务器返回出错'
     },
     'webapp':{
-        'tip1':"本功能由百度APP提供，如看到此页面，请各位站长首先申请百度APPKey!",
+        'tip1':"本功能由百度APP提供,如看到此页面,请各位站长首先申请百度APPKey!",
         'tip2':"申请完成之后请至ueditor.config.js中配置获得的appkey! ",
         'applyFor':"点此申请",
         'anthorApi':"百度API"
@@ -456,18 +456,18 @@ UE.I18N['zh-cn'] = {
             'lang_input_removePic':'删除背景',
             'J_imgTxt':{title:'添加背景图片'}
         },
-        'noScarwl':"尚未作画，白纸一张~",
+        'noScarwl':"尚未作画,白纸一张~",
         'scrawlUpLoading':"涂鸦上传中,别急哦~",
         'continueBtn':"继续",
-        'imageError':"糟糕，图片读取失败了！",
+        'imageError':"糟糕,图片读取失败了！",
         'backgroundUploading':'背景图片上传中,别急哦~'
     },
     'music':{
         'static':{
-            'lang_input_tips':"输入歌手/歌曲/专辑，搜索您感兴趣的音乐！",
+            'lang_input_tips':"输入歌手/歌曲/专辑,搜索您感兴趣的音乐！",
             'J_searchBtn':{value:'搜索歌曲'}
         },
-        'emptyTxt':'未搜索到相关音乐结果，请换一个关键词试试。',
+        'emptyTxt':'未搜索到相关音乐结果,请换一个关键词试试.',
         'chapter':'歌曲',
         'singer':'歌手',
         'special':'专辑',
@@ -492,10 +492,10 @@ UE.I18N['zh-cn'] = {
             'lang_chart_y_title': 'Y轴标题：',
             'lang_chart_tip': '提示文字',
             'lang_cahrt_tip_prefix': '提示文字前缀：',
-            'lang_cahrt_tip_description': '仅饼图有效， 当鼠标移动到饼图中相应的块上时，提示框内的文字的前缀',
+            'lang_cahrt_tip_description': '仅饼图有效, 当鼠标移动到饼图中相应的块上时,提示框内的文字的前缀',
             'lang_chart_data_unit': '数据单位',
             'lang_chart_data_unit_title': '单位：',
-            'lang_chart_data_unit_description': '显示在每个数据点上的数据的单位， 比如： 温度的单位 ℃',
+            'lang_chart_data_unit_description': '显示在每个数据点上的数据的单位, 比如： 温度的单位 ℃',
             'lang_chart_type': '图表类型：',
             'lang_prev_btn': '上一个',
             'lang_next_btn': '下一个'
@@ -524,7 +524,7 @@ UE.I18N['zh-cn'] = {
         'static':{
             'lang_input_about':'关于UEditor',
             'lang_input_shortcuts':'快捷键',
-            'lang_input_introduction':'UEditor是由百度web前端研发部开发的所见即所得富文本web编辑器，具有轻量，可定制，注重用户体验等特点。开源基于BSD协议，允许自由使用和修改代码。',
+            'lang_input_introduction':'UEditor是由百度web前端研发部开发的所见即所得富文本web编辑器,具有轻量,可定制,注重用户体验等特点.开源基于BSD协议,允许自由使用和修改代码.',
             'lang_Txt_shortcuts':'快捷键',
             'lang_Txt_func':'功能',
             'lang_Txt_bold':'给选中字设置为加粗',
@@ -560,7 +560,7 @@ UE.I18N['zh-cn'] = {
             'lang_input_target':'是否在新窗口打开：'
         },
         'validLink':'只支持选中一个链接时生效',
-        'httpPrompt':'您输入的超链接中不包含http等协议名称，默认将为您添加http://前缀'
+        'httpPrompt':'您输入的超链接中不包含http等协议名称,默认将为您添加http://前缀'
     },
     'map':{
         'static':{
@@ -571,7 +571,7 @@ UE.I18N['zh-cn'] = {
             lang_dynamicmap:"插入动态地图"
         },
         cityMsg:"请选择城市",
-        errorMsg:"抱歉，找不到该位置！"
+        errorMsg:"抱歉,找不到该位置！"
     },
     'searchreplace':{
         'static':{
@@ -580,8 +580,8 @@ UE.I18N['zh-cn'] = {
             lang_search1:"查找",
             lang_search2:"查找",
             lang_replace:"替换",
-            lang_searchReg:'支持正则表达式，添加前后斜杠标示为正则表达式，例如“/表达式/”',
-            lang_searchReg1:'支持正则表达式，添加前后斜杠标示为正则表达式，例如“/表达式/”',
+            lang_searchReg:'支持正则表达式,添加前后斜杠标示为正则表达式,例如“/表达式/”',
+            lang_searchReg1:'支持正则表达式,添加前后斜杠标示为正则表达式,例如“/表达式/”',
             lang_case_sensitive1:"区分大小写",
             lang_case_sensitive2:"区分大小写",
             nextFindBtn:{value:"下一个"},
@@ -599,8 +599,8 @@ UE.I18N['zh-cn'] = {
         'static':{
             lang_showMsg:"截图功能需要首先安装UEditor截图插件！ ",
             lang_download:"点此下载",
-            lang_step1:"第一步，下载UEditor截图插件并运行安装。",
-            lang_step2:"第二步，插件安装完成后即可使用，如不生效，请重启浏览器后再试！"
+            lang_step1:"第一步,下载UEditor截图插件并运行安装.",
+            lang_step2:"第二步,插件安装完成后即可使用,如不生效,请重启浏览器后再试！"
         }
     },
     'spechars':{
@@ -632,7 +632,7 @@ UE.I18N['zh-cn'] = {
         captionName:'表格名称',
         titleName:'标题',
         cellsName:'内容',
-        errorMsg:'有合并单元格，不可排序'
+        errorMsg:'有合并单元格,不可排序'
     },
     'edittip':{
         'static':{
@@ -654,11 +654,11 @@ UE.I18N['zh-cn'] = {
             lang_resave:"转存步骤",
             uploadBtn:{src:"upload.png",alt:"上传"},
             clipboard:{style:"background: url(copy.png) -153px -1px no-repeat;"},
-            lang_step:"1、点击顶部复制按钮，将地址复制到剪贴板；2、点击添加照片按钮，在弹出的对话框中使用Ctrl+V粘贴地址；3、点击打开后选择图片上传流程。"
+            lang_step:"1、点击顶部复制按钮,将地址复制到剪贴板；2、点击添加照片按钮,在弹出的对话框中使用Ctrl+V粘贴地址；3、点击打开后选择图片上传流程."
         },
         'fileType':"图片",
-        'flashError':"FLASH初始化失败，请检查FLASH插件是否正确安装！",
-        'netError':"网络连接错误，请重试！",
+        'flashError':"FLASH初始化失败,请检查FLASH插件是否正确安装！",
+        'netError':"网络连接错误,请重试！",
         'copySuccess':"图片地址已经复制！",
         'flashI18n':{} //留空默认中文
     },

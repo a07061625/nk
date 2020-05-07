@@ -76,14 +76,14 @@ module.exports = {
     optimization: {
         //分包,拆分出多模块中公共的模块包
         splitChunks: {
-            chunks: 'all', //async:只从异步加载得模块（动态加载import()）里面进行拆分 initial:只从入口模块进行拆分 all:以上两者都包括
+            chunks: 'all', //async:只从异步加载得模块(动态加载import())里面进行拆分 initial:只从入口模块进行拆分 all:以上两者都包括
             maxInitialRequests: Infinity, //一个入口最大的并行请求数
             cacheGroups: {
                 default: {
                     chunks: 'all',
                     reuseExistingChunk: true, // 这个配置允许我们使用已经存在的代码块
-                    minSize: 1, //大于1个字节，避免模块体积过小而被忽略
-                    minChunks: 2 //抽离公共代码时，这个代码块最小被引用的次数
+                    minSize: 1, //大于1个字节,避免模块体积过小而被忽略
+                    minChunks: 2 //抽离公共代码时,这个代码块最小被引用的次数
                 },
                 vendor: {
                     priority: 10, // 该配置项是设置处理的优先级,数值越大越优先处理

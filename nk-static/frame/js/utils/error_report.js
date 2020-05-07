@@ -105,14 +105,14 @@ function reportError (params) {
     window.onerror = function (msg, url, line, col, error) {
         // 采用异步的方式,避免阻塞
         setTimeout(function () {
-            // 不一定所有浏览器都支持col参数，如果不支持就用window.event来兼容
+            // 不一定所有浏览器都支持col参数,如果不支持就用window.event来兼容
             col = col || (window.event && window.event.errorCharacter) || 0;
             reportMsg.url = url;
             reportMsg.line = line;
             reportMsg.col = col;
 
             if (error && error.stack) {
-                // 如果浏览器有堆栈信息，直接使用
+                // 如果浏览器有堆栈信息,直接使用
                 reportMsg.msg = error.stack.toString();
             } else if (arguments.callee) {
                 // 尝试通过callee拿堆栈信息
@@ -128,7 +128,7 @@ function reportError (params) {
                 }
                 reportMsg.msg = ext.join(',');
             }
-            // 合并上报的数据，包括默认上报的数据和自定义上报的数据
+            // 合并上报的数据,包括默认上报的数据和自定义上报的数据
             var reportData = reportExtendObj(params.data || {}, reportMsg);
 
             // 把错误信息发送给后台

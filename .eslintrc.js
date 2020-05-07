@@ -120,7 +120,7 @@ module.exports = {
         "no-div-regex": 2,
         // 禁止 if 语句中有 return 之后有 else
         "no-else-return": 0,
-        // 禁止出现空函数.如果一个函数包含了一条注释,它将不会被认为有问题。
+        // 禁止出现空函数.如果一个函数包含了一条注释,它将不会被认为有问题.
         "no-empty-function": 2,
         // 禁止使用空解构模式no-empty-pattern
         "no-empty-pattern": 2,
@@ -271,7 +271,7 @@ module.exports = {
         // 禁止或强制在单行代码块中使用空格(禁用)
         "block-spacing": [1, "never"],
         //强制使用一致的缩进 第二个参数为 "tab" 时,会使用tab,
-        // if while function 后面的{必须与if在同一行,java风格。
+        // if while function 后面的{必须与if在同一行,java风格.
         "brace-style": [2, "1tbs", {"allowSingleLine": true}],
         // 双峰驼命名格式
         "camelcase": 2,
@@ -300,7 +300,7 @@ module.exports = {
         //  强制一致地使用函数声明或函数表达式,方法定义风格,参数：
         //    declaration: 强制使用方法声明的方式,function f(){} e.g [2, "declaration"]
         //    expression：强制使用方法表达式的方式,var f = function() {}  e.g [2, "expression"]
-        //    allowArrowFunctions: declaration风格中允许箭头函数。 e.g [2, "declaration", { "allowArrowFunctions": true }]
+        //    allowArrowFunctions: declaration风格中允许箭头函数. e.g [2, "declaration", { "allowArrowFunctions": true }]
         "func-style": 0,
         // 强制回调函数最大嵌套深度 5层
         "max-nested-callbacks": [1, 5],
@@ -324,7 +324,7 @@ module.exports = {
         "max-statements": [1, 200],
         // 强制每一行中所允许的最大语句数量
         "max-statements-per-line": 0,
-        // 要求构造函数首字母大写  （要求调用 new 操作符时有首字母大小的函数,允许调用首字母大写的函数时没有 new 操作符。）
+        // 要求构造函数首字母大写  (要求调用 new 操作符时有首字母大小的函数,允许调用首字母大写的函数时没有 new 操作符.)
         "new-cap": [2, {"newIsCap": true, "capIsNew": false}],
         // 要求调用无参构造函数时有圆括号
         "new-parens": 2,
@@ -394,7 +394,7 @@ module.exports = {
         "quotes": [2, "single", "avoid-escape"],
         // 要求使用 JSDoc 注释
         "require-jsdoc": 1,
-        // 要求或禁止使用分号而不是 ASI（这个才是控制行尾部分号的,）
+        // 要求或禁止使用分号而不是 ASI(这个才是控制行尾部分号的,)
         "semi": [2, "always"],
         // 强制分号之前和之后使用一致的空格
         "semi-spacing": 0,
