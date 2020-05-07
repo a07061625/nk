@@ -2,6 +2,7 @@
 set -o nounset
 set -o errexit
 
+# project.sh样板为static/project.sh,需提前将该文件复制到项目根目录下且拥有可执行权限
 . ./project.sh
 
 # 项目根目录

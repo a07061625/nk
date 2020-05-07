@@ -2,5 +2,3 @@
 node_modules/
 package-lock.json
 rule_check.log
-project.sh
-./project.sh
