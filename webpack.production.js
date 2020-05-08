@@ -1,6 +1,6 @@
 const glob = require('glob');
 const path = require('path');
-const PurifyCSSPlugin = require('purifycss-webpack');
+const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 let productConfig = require('./webpack.base');
@@ -27,7 +27,7 @@ productConfig.module.rules.push({
     }]
 });
 // 消除未使用的CSS
-productConfig.plugins.push(new PurifyCSSPlugin({
+productConfig.plugins.push(new PurgeCSSPlugin({
     paths: glob.sync('./views/*/*.html')
 }));
 // 压缩CSS
