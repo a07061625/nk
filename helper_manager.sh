@@ -44,8 +44,8 @@ function createPackageJson() {
     echo "  }," >> package.json
     echo "  \"keywords\": [" >> package.json
     echo "    \"front\"," >> package.json
-    echo "    \"ssr",\" >> package.json
-    echo "    \"web",\" >> package.json
+    echo "    \"ssr\"," >> package.json
+    echo "    \"web\"," >> package.json
     echo "    \"framework\"," >> package.json
     echo "    \"node\"," >> package.json
     echo "    \"koa2\"," >> package.json
