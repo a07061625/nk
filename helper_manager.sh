@@ -59,7 +59,6 @@ function createPackageJson() {
     echo "  }," >> package.json
     echo "  \"homepage\": \"$PACKAGE_HOMEPAGE\"," >> package.json
     echo "  \"os\": [" >> package.json
-    echo "    \"darwin\"," >> package.json
     echo "    \"linux\"" >> package.json
     echo "  ]," >> package.json
     echo "  \"engines\": {" >> package.json
