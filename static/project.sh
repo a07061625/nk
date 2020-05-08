@@ -6,7 +6,6 @@ DIR_LOG=/home/logs/nodeforever
 DIR_LIB_FRAME_ORIGIN=/path/to/nklibs
 # 项目标识 nk+3位由数字字母组成的字符串
 PROJECT_TAG=nka01
-
 # package.json相关
 PACKAGE_NAME="nk"
 PACKAGE_VERSION="2.0.0"

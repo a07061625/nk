@@ -136,7 +136,7 @@ function formatJs() {
 
 case "$1" in
     init)
-        rm -rf $DIR_ROOT/node_modules
+#        rm -rf $DIR_ROOT/node_modules
         createPackageJson
 #        npm init -y
 #        # 框架所需模块
