@@ -136,15 +136,15 @@ function formatJs() {
 
 case "$1" in
     init)
-#        rm -rf $DIR_ROOT/node_modules
+        rm -rf $DIR_ROOT/node_modules
         createPackageJson
-#        npm init -y
-#        # 框架所需模块
-#        npm install koa@2 koa-router@7 nunjucks@3 html-minifier@4 lru-cache@5 utility axios lodash eventproxy async qs --save
-#        # webpack打包所需模块
-#        npm install webpack@4 webpack-cli@3 glob mini-css-extract-plugin style-loader css-loader sass-loader postcss-loader less-loader less autoprefixer uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin cssnano clean-webpack-plugin purgecss-webpack-plugin purify-css html-withimg-loader file-loader url-loader mkdirp peer html-webpack-plugin@3 bundle-loader promise-loader ttf-loader --save
-#        cnpm install node-sass --save
-#        echo "init project success"
+        npm init -y
+        # 框架所需模块
+        npm install koa@2 koa-router@7 nunjucks@3 html-minifier@4 lru-cache@5 utility axios lodash eventproxy async qs --save
+        # webpack打包所需模块
+        npm install webpack@4 webpack-cli@3 glob mini-css-extract-plugin style-loader css-loader sass-loader postcss-loader less-loader less autoprefixer uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin cssnano clean-webpack-plugin purgecss-webpack-plugin purify-css html-withimg-loader file-loader url-loader mkdirp peer html-webpack-plugin@3 bundle-loader promise-loader ttf-loader --save
+        cnpm install node-sass --save
+        echo "init project success"
         ;;
     start)
         if [ $PID -gt 0 ]; then
