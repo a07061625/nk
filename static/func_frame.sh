@@ -2,9 +2,7 @@
 
 # 生成package.json
 function createPackageJson() {
-    rm -rf package.json
-    touch package.json
-    echo "{" >> package.json
+    echo "{" > package.json
     echo "  \"name\": \"$PACKAGE_NAME\"," >> package.json
     echo "  \"version\": \"$PACKAGE_VERSION\"," >> package.json
     echo "  \"description\": \"$PACKAGE_DESCRIPTION\"," >> package.json

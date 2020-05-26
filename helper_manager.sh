@@ -6,7 +6,7 @@ set -o errexit
 DIR_ROOT=`pwd`
 
 # 以下shell脚本均需拥有可执行全选
-# env_project.sh样板为static/env_project_base.sh
+# env_project.sh样板为static/env_project_example.sh
 . ./static/env_project.sh
 . ./static/env_frame.sh
 . ./static/func_frame.sh
