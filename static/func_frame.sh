@@ -8,7 +8,8 @@ function createPackageJson() {
     echo "  \"description\": \"$PACKAGE_DESCRIPTION\"," >> package.json
     echo "  \"main\": \"$PROJECT_TAG.js\"," >> package.json
     echo "  \"scripts\": {" >> package.json
-    echo "    \"build-product\": \"webpack --config webpack.production.js -p\"" >> package.json
+    echo "    \"build-product\": \"webpack --config webpack.production.js -p\"," >> package.json
+    echo "    \"build-dll\": \"webpack --config webpack.dll.js -p\"" >> package.json
     echo "  }," >> package.json
     echo "  \"repository\": {" >> package.json
     echo "    \"type\": \"$PACKAGE_REPOSITORY_TYPE\"," >> package.json

@@ -1,3 +1,5 @@
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -10,6 +12,7 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
+                    'thread-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'less-loader'
@@ -18,6 +21,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
+                    'thread-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader'
@@ -26,6 +30,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
+                    'thread-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader'
@@ -33,24 +38,66 @@ module.exports = {
             },
             {
                 test: /\.ttf$/,
-                use: [{
-                    loader: 'ttf-loader',
-                    options: {
-                        limit: 1024,
-                        name: './includes/[contenthash:8].[ext]',
-                        outputPath: 'fonts/'
+                use: [
+                    'thread-loader',
+                    {
+                        loader: 'ttf-loader',
+                        options: {
+                            limit: 1024,
+                            name: './includes/[contenthash:8].[ext]',
+                            outputPath: 'fonts/'
+                        }
                     }
-                }]
+                ]
             },
             {
                 test: /\.(htm|html)$/i,
-                use: ['html-withimg-loader']
+                use: [
+                    'thread-loader',
+                    'html-withimg-loader'
+                ]
             }
         ]
     },
     plugins: [
+        new BundleAnalyzerPlugin({
+            //可以是`server`,`static`或`disabled`
+            //在server模式下,分析器将启动HTTP服务器来显示软件包报告
+            //在静态模式下,会生成带有报告的单个HTML文件
+            //在disabled模式下,你可以使用这个插件来将`generateStatsFile`设置为`true`来生成Webpack Stats JSON文件
+            analyzerMode: 'static',
+            //将在服务器模式下使用的主机启动HTTP服务器
+            analyzerHost: '127.0.0.1',
+            //将在服务器模式下使用的端口启动HTTP服务器
+            analyzerPort: 8866,
+            //路径捆绑,将在`static`模式下生成的报告文件
+            //相对于捆绑输出目录
+            reportFilename: 'report.html',
+            //模块大小默认显示在报告中
+            //应该是`stat`,`parsed`或者`gzip`中的一个
+            //有关更多信息,请参见“定义”一节
+            defaultSizes: "parsed",
+            //在默认浏览器中自动打开报告
+            openAnalyzer: false,
+            //如果为true,则Webpack Stats JSON文件将在bundle输出目录中生成
+            generateStatsFile: false,
+            //如果`generateStatsFile`为`true`,将会生成Webpack Stats JSON文件的名字
+            //相对于捆绑输出目录
+            statsFilename: 'stats.json',
+            //stats.toJson()方法的选项
+            //例如,您可以使用`source：false`选项排除统计文件中模块的来源
+            //在这里查看更多选项：https://github.com/webpack/webpack/blob/webpack-1/lib/Stats.js#L21
+            statsOptions: null,
+            logLevel: 'info'
+        }),
         new UglifyJsPlugin({
             cache: true,
+            uglifyOptions: {
+                warnings: false,
+                parse: {},
+                compress: {},
+                ie8: false
+            },
             parallel: true, // 启用多线程并行运行提高编译速度
             sourceMap: false, // sourceMap 和 devtool:'inline-source-map' 冲突
             extractComments: 'all' // 导出备注
@@ -74,6 +121,12 @@ module.exports = {
         }),
     ],
     optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                parallel: 4,
+            }),
+        ],
         //分包,拆分出多模块中公共的模块包
         splitChunks: {
             chunks: 'all', //async:只从异步加载得模块(动态加载import())里面进行拆分 initial:只从入口模块进行拆分 all:以上两者都包括

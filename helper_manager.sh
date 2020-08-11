@@ -17,7 +17,7 @@ case "$1" in
         createPackageJson
         npm init -y
         # 框架所需模块
-        npm install koa@2 koa-router@7 nunjucks@3 html-minifier@4 lru-cache@5 utility axios lodash eventproxy async qs redis --save
+        npm install koa@2 koa-router@7 nunjucks@3 html-minifier@4 lru-cache@5 utility axios lodash eventproxy async qs redis speed-measure-webpack-plugin webpack-bundle-analyzer thread-loader add-asset-html-webpack-plugin terser-webpack-plugin --save
         # webpack打包所需模块
         npm install webpack@4 webpack-cli@3 glob mini-css-extract-plugin style-loader css-loader sass-loader sass node-sass postcss-loader less-loader less autoprefixer uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin cssnano clean-webpack-plugin purgecss-webpack-plugin purify-css html-withimg-loader file-loader url-loader mkdirp peer html-webpack-plugin@3 bundle-loader promise-loader fibers bufferutil utf-8-validate --save
         npm install ttf-loader --save
@@ -51,6 +51,9 @@ case "$1" in
     refresh)
         refreshModule
         ;;
+    dll)
+        npm run build-dll
+        ;;
     build)
         npm run build-product
         ;;
@@ -65,6 +68,6 @@ case "$1" in
         chmod a+x $DIR_ROOT/static/func_frame.sh
         ;;
     *)
-        echo "option must be init|start|stop|restart|refresh|build|format|static"
+        echo "option must be init|start|stop|restart|refresh|dll|build|format|static"
         ;;
 esac

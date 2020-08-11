@@ -86,6 +86,7 @@
 - package.json: 项目配置
 - postcss.config.js: postcss配置脚本
 - webpack.base.js: webpack基础配置
+- webpack.dll.js: webpack预编译配置
 - webpack.production.js: webpack生产环境配置
 
 # 管理命令
@@ -101,6 +102,8 @@
     sh helper_manager.sh restart 1 //刷新并重启服务
 ## 刷新服务(仅刷新项目文件,没有重启服务)
     sh helper_manager.sh refresh
+## 预编译资源模块
+    sh helper_manager.sh dll
 ## webpack打包压缩(生产环境)
     sh helper_manager.sh build
 ## js代码格式化

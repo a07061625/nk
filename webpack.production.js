@@ -1,7 +1,13 @@
+//速度分析
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+const smp = new SpeedMeasurePlugin();
 const glob = require('glob');
 const path = require('path');
+const fs = require('fs');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const webpack = require('webpack');
 
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
@@ -18,13 +24,16 @@ productConfig.output = {
 // 图片处理
 productConfig.module.rules.push({
     test: /\.(png|jpg|gif|svg)/,
-    use: [{
-        loader: 'url-loader',
-        options: {
-            limit: 1000,
-            outputPath: 'images/'
+    use: [
+        'thread-loader',
+        {
+            loader: 'url-loader',
+            options: {
+                limit: 1000,
+                outputPath: 'images/'
+            }
         }
-    }]
+    ]
 });
 // 消除未使用的CSS
 productConfig.plugins.push(new PurgeCSSPlugin({
@@ -36,4 +45,18 @@ productConfig.plugins.push(new MiniCssExtractPlugin({
     chunkFilename: 'css/[id].css'
 }));
 
-module.exports = productConfig;
+const files = fs.readdirSync(path.resolve(__dirname, './dll'));
+files.forEach(file => {
+    if(/.*\.dll.js/.test(file)) {
+        productConfig.plugins.push(new AddAssetHtmlWebpackPlugin({
+            filepath: path.resolve(__dirname, './dll', file)
+        }));
+    }
+    if(/.*\.manifest.json/.test(file)) {
+        productConfig.plugins.push(new webpack.DllReferencePlugin({
+            manifest: path.resolve(__dirname, './dll', file)
+        }));
+    }
+});
+
+module.exports = smp.wrap(productConfig);
