@@ -1,6 +1,7 @@
 .idea/
 node_modules/
 dll/
+dist/
 static/env_project.sh
 package.json
 package-lock.json
