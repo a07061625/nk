@@ -13,7 +13,7 @@ DIR_ROOT=`pwd`
 
 case "$1" in
     init)
-        rm -rf $DIR_ROOT/node_modules
+        rm -rf ${DIR_ROOT}/node_modules
         createPackageJson
         npm init -y
         # 框架所需模块
@@ -29,24 +29,24 @@ case "$1" in
             exit 1;
         fi
         refreshTag=${2:-0}
-        checkRefreshModule $refreshTag
-        forever $COMMAND_START
+        checkRefreshModule ${refreshTag}
+        forever ${COMMAND_START}
         ;;
     stop)
         if [ $PID -gt 0 ]; then
-            forever stop $PROJECT_TAG$SUFFIX_JS
+            forever stop ${PROJECT_TAG}${SUFFIX_JS}
             kill $PID
         fi
         ;;
     restart)
         if [ $PID -gt 0 ]; then
-            forever stop $PROJECT_TAG$SUFFIX_JS
+            forever stop ${PROJECT_TAG}${SUFFIX_JS}
             kill $PID
             sleep 3s
         fi
         refreshTag=${2:-0}
-        checkRefreshModule $refreshTag
-        forever $COMMAND_START
+        checkRefreshModule ${refreshTag}
+        forever ${COMMAND_START}
         ;;
     refresh)
         refreshModule
@@ -58,14 +58,14 @@ case "$1" in
         npm run build-product
         ;;
     format)
-        echo > $FILE_CHECK_RESULT
-        formatJs $DIR_LIB_FRAME_ORIGIN/nk-frame
-        formatJs $DIR_LIB_PROJECT_ORIGIN
+        echo > ${FILE_CHECK_RESULT}
+        formatJs ${DIR_LIB_FRAME_ORIGIN}/nk-frame
+        formatJs ${DIR_LIB_PROJECT_ORIGIN}
         ;;
     static)
-        cp -rf $DIR_LIB_FRAME_ORIGIN/nk-static/* $DIR_ROOT/static
-        chmod a+x $DIR_ROOT/static/env_frame.sh
-        chmod a+x $DIR_ROOT/static/func_frame.sh
+        cp -rf ${DIR_LIB_FRAME_ORIGIN}/nk-static/* ${DIR_ROOT}/static
+        chmod a+x ${DIR_ROOT}/static/env_frame.sh
+        chmod a+x ${DIR_ROOT}/static/func_frame.sh
         ;;
     *)
         echo "option must be init|start|stop|restart|refresh|dll|build|format|static"
