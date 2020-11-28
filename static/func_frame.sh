@@ -10,7 +10,7 @@ function createPackageJson() {
     echo "  \"scripts\": {" >> package.json
     echo "    \"build-product\": \"webpack --config webpack.production.js -p\"," >> package.json
     echo "    \"build-dll\": \"webpack --config webpack.dll.js -p\"," >> package.json
-    echo "    \"build-lib\": \"rollup -c -w\"" >> package.json
+    echo "    \"build-lib\": \"rollup -c\"" >> package.json
     echo "  }," >> package.json
     echo "  \"repository\": {" >> package.json
     echo "    \"type\": \"${PACKAGE_REPOSITORY_TYPE}\"," >> package.json
