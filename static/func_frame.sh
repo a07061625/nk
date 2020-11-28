@@ -9,7 +9,7 @@ function createPackageJson() {
     echo "  \"main\": \"${PROJECT_TAG}.js\"," >> package.json
     echo "  \"scripts\": {" >> package.json
     echo "    \"build-product\": \"webpack --config webpack.production.js -p\"," >> package.json
-    echo "    \"build-dll\": \"webpack --config webpack.dll.js -p\"" >> package.json
+    echo "    \"build-dll\": \"webpack --config webpack.dll.js -p\"," >> package.json
     echo "    \"build-lib\": \"rollup -c -w\"" >> package.json
     echo "  }," >> package.json
     echo "  \"repository\": {" >> package.json
@@ -113,21 +113,21 @@ function createRollupConfig() {
         return 0
     fi
 
-    echo "import resolve from \"\@rollup/plugin-node-resolve\";" > ${FILE_ROLLUP_CONFIG}
-    echo "import commonjs from \"\@rollup/plugin-commonjs\";" >> ${FILE_ROLLUP_CONFIG}
-    echo "import babel from \"\@rollup/plugin-babel\";" >> ${FILE_ROLLUP_CONFIG}
-    echo "import json from \"\@rollup/plugin-json\";" >> ${FILE_ROLLUP_CONFIG}
+    echo "import resolve from \"@rollup/plugin-node-resolve\";" > ${FILE_ROLLUP_CONFIG}
+    echo "import commonjs from \"@rollup/plugin-commonjs\";" >> ${FILE_ROLLUP_CONFIG}
+    echo "import babel from \"@rollup/plugin-babel\";" >> ${FILE_ROLLUP_CONFIG}
+    echo "import json from \"@rollup/plugin-json\";" >> ${FILE_ROLLUP_CONFIG}
     echo "" >> ${FILE_ROLLUP_CONFIG}
     echo "export default {" >> ${FILE_ROLLUP_CONFIG}
-    echo "    input: \[\"\./static/project/js/test.js\"\], //入口文件路径" >> ${FILE_ROLLUP_CONFIG}
+    echo "    input: [\"./static/project/js/test.js\"], //入口文件路径" >> ${FILE_ROLLUP_CONFIG}
     echo "    output: {" >> ${FILE_ROLLUP_CONFIG}
-    echo "        file: \"\./dist/bundle.js\", //输出文件路径" >> ${FILE_ROLLUP_CONFIG}
+    echo "        file: \"./dist/bundle.js\", //输出文件路径" >> ${FILE_ROLLUP_CONFIG}
     echo "        format: \"umd\", //输出文件格式" >> ${FILE_ROLLUP_CONFIG}
     echo "        name: \"experience\"," >> ${FILE_ROLLUP_CONFIG}
     echo "        banner: \"\", //文件头部添加的内容" >> ${FILE_ROLLUP_CONFIG}
     echo "        footer: \"\", //文件末尾添加的内容" >> ${FILE_ROLLUP_CONFIG}
     echo "    }," >> ${FILE_ROLLUP_CONFIG}
-    echo "    plugins: \[resolve(), commonjs(), babel(), json()\]," >> ${FILE_ROLLUP_CONFIG}
-    echo "    external: \[\"the-answer\"\]," >> ${FILE_ROLLUP_CONFIG}
+    echo "    plugins: [resolve(), commonjs(), babel(), json()]," >> ${FILE_ROLLUP_CONFIG}
+    echo "    external: [\"the-answer\"]," >> ${FILE_ROLLUP_CONFIG}
     echo "};" >> ${FILE_ROLLUP_CONFIG}
 }
