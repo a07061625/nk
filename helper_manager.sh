@@ -11,6 +11,9 @@ DIR_ROOT=`pwd`
 . ./static/env_frame.sh
 . ./static/func_frame.sh
 
+# rollup配置文件
+FILE_ROLLUP_CONFIG=${DIR_ROOT}/rollup.config.js
+
 case "$1" in
     init)
         rm -rf ${DIR_ROOT}/node_modules
@@ -21,6 +24,8 @@ case "$1" in
         # webpack打包所需模块
         npm install webpack@4 webpack-cli@3 glob mini-css-extract-plugin style-loader css-loader sass-loader sass node-sass postcss-loader less-loader less autoprefixer uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin cssnano clean-webpack-plugin purgecss-webpack-plugin purify-css html-withimg-loader file-loader url-loader mkdirp peer html-webpack-plugin@3 bundle-loader promise-loader fibers bufferutil utf-8-validate --save
         npm install speed-measure-webpack-plugin webpack-bundle-analyzer thread-loader add-asset-html-webpack-plugin terser-webpack-plugin ttf-loader --save
+        npm install the-answer @babel/core @babel/preset-env --save
+        npm install @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-babel @rollup/plugin-json --dev
         echo "init project success"
         ;;
     start)
@@ -67,7 +72,10 @@ case "$1" in
         chmod a+x ${DIR_ROOT}/static/env_frame.sh
         chmod a+x ${DIR_ROOT}/static/func_frame.sh
         ;;
+    rollup)
+        createRollupConfig
+        ;;
     *)
-        echo "option must be init|start|stop|restart|refresh|dll|build|format|static"
+        echo "option must be init|start|stop|restart|refresh|dll|build|format|static|rollup"
         ;;
 esac
