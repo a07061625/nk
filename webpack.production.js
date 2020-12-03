@@ -7,6 +7,7 @@ const fs = require('fs');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 let productConfig = require('./webpack.base');
@@ -43,6 +44,10 @@ productConfig.plugins.push(new PurgeCSSPlugin({
 productConfig.plugins.push(new MiniCssExtractPlugin({
     filename: 'css/[name].[chunkhash:8].css',
     chunkFilename: 'css/[id].css'
+}));
+// HTML处理
+productConfig.plugins.push(new HtmlWebpackPlugin({
+    template: path.join(__dirname, '/index.html')
 }));
 
 const files = fs.readdirSync(path.resolve(__dirname, './dll'));
