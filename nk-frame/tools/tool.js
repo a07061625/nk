@@ -9,6 +9,7 @@ const CHAR_NUMLOWER = Symbol('tool-char-numlower');
 const CHAR_LOWER = Symbol('tool-char-lower');
 const axios = require('axios');
 const requestConfig = require('nk-project/configs/request');
+const jsonFile = require('jsonfile')
 
 class Tool {
     /**
@@ -74,10 +75,10 @@ class Tool {
      * @returns {boolean} 判断结果
      */
     static isEmptyJson(obj) {
-        for (let name in obj) {
+        if (Object.getOwnPropertySymbols(obj).length <= 0) {
             return false;
         }
-        return true;
+        return Object.getOwnPropertyNames(obj).length > 0;
     }
 
     /**
@@ -96,7 +97,26 @@ class Tool {
         }
         return instance;
     }
+
+    /**
+     * 移除cookie数据
+     * @param {object} ctx 上下文环境(koa2)
+     * @param {string} key cookie键名
+     */
+    static removeCookieData(ctx, key) {
+        ctx.cookies.set(key, '', {maxAge: 0});
+    }
+
+    /**
+     * 读取json文件
+     * @param {string} file
+     * @returns {*}
+     */
+    static readJsonFile(file) {
+        return jsonFile.readFileSync(fileName)
+    }
 }
+
 Tool[CHAR_TOTAL] = [
     '2', '3', '4', '5', '6', '7', '8', '9',
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
