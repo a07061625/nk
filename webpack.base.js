@@ -135,6 +135,7 @@ module.exports = {
             $: 'jquery'
         }), // 自动加载模块,部分需要提前在resolve的alias中提前申明
         new webpack.DefinePlugin(trueConstant), // 自定义全局变量,使用时直接使用NK_CODE_SUCCESS即可
+        new webpack.IgnorePlugin(/\.\/locale/, /moment/), // 忽略解析三方包里插件
         new OptimizeCSSAssetsPlugin({
             // 默认是全部的CSS都压缩,该字段可以指定某些要处理的文件
             assetNameRegExp: /\.css$/g,

@@ -110,3 +110,14 @@
     sh helper_manager.sh format
 ## 更新框架静态资源
     sh helper_manager.sh static
+
+# 其他
+## 插件使用
+### moment
+
+    import moment from 'moment'
+    import 'moment/locale/zh-cn'
+    
+    moment.locale('zh-cn');
+    let momentStr = moment().subtract(10, 'days').calendar();
+    console.log('现在时间：', momentStr);
