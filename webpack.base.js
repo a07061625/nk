@@ -4,6 +4,29 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const webpack = require('webpack');
+
+let localConstant = require('nk-project/constants/project');
+let localConstantKeys = Object.keys(localConstant);
+let localConstantLength = localConstantKeys.length;
+let constantAccepts = ['string', 'number', 'boolean']
+let trueConstant = {}
+for (let i = 0; i < localConstantLength; i++) {
+    let eKey = localConstantKeys[i];
+    if (typeof eKey !== 'string') {
+        continue;
+    }
+    if (!eKey.startsWith('NK_')) {
+        continue;
+    }
+
+    let eVal = localConstant[eKey];
+    if (!constantAccepts.includes(typeof eVal)) {
+        continue;
+    }
+
+    trueConstant[eKey] = eVal;
+}
 
 module.exports = {
     devtool: 'inline-source-map', // 报错会指定错误位置和所属文件
@@ -59,6 +82,11 @@ module.exports = {
             }
         ]
     },
+    resolve: {
+        alias: {
+            jquery: './static/frame/js/jquery/jquery-3.4.0'
+        }
+    },
     plugins: [
         new BundleAnalyzerPlugin({
             //可以是`server`,`static`或`disabled`
@@ -103,6 +131,10 @@ module.exports = {
             extractComments: 'all' // 导出备注
         }),
         new CleanWebpackPlugin(), // 打包前需要被删除的目录为output配置下的path
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        }), // 自动加载模块,部分需要提前在resolve的alias中提前申明
+        new webpack.DefinePlugin(trueConstant), // 自定义全局变量,使用时直接使用NK_CODE_SUCCESS即可
         new OptimizeCSSAssetsPlugin({
             // 默认是全部的CSS都压缩,该字段可以指定某些要处理的文件
             assetNameRegExp: /\.css$/g,
