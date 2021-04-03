@@ -3,13 +3,14 @@ set -o nounset
 set -o errexit
 
 # 项目根目录
-DIR_ROOT=`pwd`
+FILE_ROOT_NAME=`readlink -f "$0"`
+DIR_ROOT=`dirname ${FILE_ROOT_NAME}`
 
 # 以下shell脚本均需拥有可执行全选
 # env_project.sh样板为static/env_project_example.sh
-. ./static/env_project.sh
-. ./static/env_frame.sh
-. ./static/func_frame.sh
+. ${DIR_ROOT}/static/env_project.sh
+. ${DIR_ROOT}/static/env_frame.sh
+. ${DIR_ROOT}/static/func_frame.sh
 
 # rollup配置文件
 FILE_ROLLUP_CONFIG=${DIR_ROOT}/rollup.config.js
