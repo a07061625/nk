@@ -24,7 +24,7 @@ case "$1" in
         npm install koa@2 koa-router@7 koa-compress nunjucks@3 html-minifier@4 lru-cache@5 utility axios lodash eventproxy async qs redis core-js@3 socket.io jsonfile --save
         # webpack打包所需模块
         npm install webpack@4 webpack-cli@3 glob mini-css-extract-plugin style-loader css-loader sass-loader sass node-sass postcss-loader less-loader less autoprefixer uglifyjs-webpack-plugin optimize-css-assets-webpack-plugin cssnano clean-webpack-plugin purgecss-webpack-plugin purify-css html-withimg-loader file-loader url-loader mkdirp peer html-webpack-plugin@3 bundle-loader promise-loader fibers bufferutil utf-8-validate --save
-        npm install speed-measure-webpack-plugin webpack-bundle-analyzer thread-loader add-asset-html-webpack-plugin terser-webpack-plugin ttf-loader --save
+        npm install speed-measure-webpack-plugin webpack-bundle-analyzer thread-loader add-asset-html-webpack-plugin terser-webpack-plugin ttf-loader hard-source-webpack-plugin --save
         npm install the-answer @babel/core @babel/preset-env --save
         npm install @rollup/plugin-node-resolve @rollup/plugin-commonjs @rollup/plugin-babel @rollup/plugin-json --only=dev
         echo "init project success"

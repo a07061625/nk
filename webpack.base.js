@@ -4,6 +4,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const webpack = require('webpack');
 
 let localConstant = require('nk-project/constants/project');
@@ -152,6 +153,7 @@ module.exports = {
             },
             canPrint: false // 是否打印编译过程中的日志
         }),
+        new HardSourceWebpackPlugin(),
     ],
     optimization: {
         minimize: true,
