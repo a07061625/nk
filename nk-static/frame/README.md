@@ -164,3 +164,22 @@ CDN https://pagecdn.com/lib/ace
 
 ## leafletjs-开源互动地图
 官网 https://leafletjs.com/
+
+## clipboard-复制内容到剪切板
+GitHub https://github.com/zenorocha/clipboard.js
+教程 https://zhuanlan.zhihu.com/p/337309625
+
+## howler-音频播放
+GitHub https://github.com/goldfire/howler.js
+
+## fullcalendar-可拖拽事件的行程日历
+文档 https://www.helloweba.net/javascript/445.html
+
+## ScrollToFixed-让网页的导航或表头等固定在顶部或底部
+除了导航和表头,也可以固定其他内容,比如广告、返回顶部等
+
+GitHub https://github.com/bigspotteddog/ScrollToFixed
+
+## quill-富文本编辑器
+文档 https://quilljs.com/docs
+教程 https://www.jianshu.com/p/b237372f15cc
