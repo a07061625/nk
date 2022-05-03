@@ -39,7 +39,7 @@ const entryMap = () => {
     const entryFiles = glob.sync('./static/project/js/entry_*.js');
     entryFiles.forEach((item) => {
         const entryFile = item;
-        const match = entryFile.match(/src\/project\/js\/entry_(.*)\.js$/);
+        const match = entryFile.match(/static\/project\/js\/entry_(.*)\.js$/);
         const pageName = match[1];
         entry[pageName] = entryFile;
         htmlPlugins.push(
