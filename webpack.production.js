@@ -7,14 +7,10 @@ const fs = require('fs');
 const PurgeCSSPlugin = require('purgecss-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 let productConfig = require('./webpack.base');
 productConfig.mode = 'production';
-productConfig.entry = {
-    app: glob.sync('./static/project/js/test.js')
-};
 productConfig.output = {
     path: path.resolve(__dirname, './dist'),
     filename: 'js/[name].[contenthash:8].js',
@@ -22,20 +18,6 @@ productConfig.output = {
     publicPath: 'http://120.79.139.64:8800/'
 };
 
-// 图片处理
-productConfig.module.rules.push({
-    test: /\.(png|jpg|gif|svg)/,
-    use: [
-        'thread-loader',
-        {
-            loader: 'url-loader',
-            options: {
-                limit: 1000,
-                outputPath: 'images/'
-            }
-        }
-    ]
-});
 // 消除未使用的CSS
 productConfig.plugins.push(new PurgeCSSPlugin({
     paths: glob.sync('./views/*/*.html')
@@ -44,10 +26,6 @@ productConfig.plugins.push(new PurgeCSSPlugin({
 productConfig.plugins.push(new MiniCssExtractPlugin({
     filename: 'css/[name].[chunkhash:8].css',
     chunkFilename: 'css/[id].css'
-}));
-// HTML处理
-productConfig.plugins.push(new HtmlWebpackPlugin({
-    template: path.join(__dirname, '/index.html')
 }));
 
 const files = fs.readdirSync(path.resolve(__dirname, './dll'));

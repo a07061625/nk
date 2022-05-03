@@ -3,6 +3,7 @@
 # 生成package.json
 function createPackageJson() {
     echo "{" > package.json
+    # shellcheck disable=SC2129
     echo "  \"name\": \"${PACKAGE_NAME}\"," >> package.json
     echo "  \"version\": \"${PACKAGE_VERSION}\"," >> package.json
     echo "  \"description\": \"${PACKAGE_DESCRIPTION}\"," >> package.json
@@ -35,6 +36,15 @@ function createPackageJson() {
     echo "  \"os\": [" >> package.json
     echo "    \"linux\"" >> package.json
     echo "  ]," >> package.json
+    echo "  \"browserslist\": {" >> package.json
+    echo "    \"production\": [" >> package.json
+    echo "      \"ie > 8\"," >> package.json
+    echo "      \"not dead\"" >> package.json
+    echo "    ]," >> package.json
+    echo "    \"development\": [" >> package.json
+    echo "      \"ie > 8\"" >> package.json
+    echo "    ]" >> package.json
+    echo "  }," >> package.json
     echo "  \"engines\": {" >> package.json
     echo "    \"node\": \"^10.15.3\"," >> package.json
     echo "    \"nodemon\": \"^1.18.11\"," >> package.json
@@ -56,26 +66,34 @@ function refreshModule() {
         echo "frame module dir invalid"
         exit 1
     fi
+    # shellcheck disable=SC2086
     if [ ! -d ${DIR_LIB_FRAME_MODULE} ]; then
         if [ -e ${DIR_LIB_FRAME_MODULE} ]; then
             rm -rf ${DIR_LIB_FRAME_MODULE}
         fi
         mkdir ${DIR_LIB_FRAME_MODULE}
     fi
+    # shellcheck disable=SC2115
+    # shellcheck disable=SC2086
     rm -rf ${DIR_LIB_FRAME_MODULE}/*
+    # shellcheck disable=SC2086
     cp -rf ${DIR_LIB_FRAME_ORIGIN}/nk-frame/* ${DIR_LIB_FRAME_MODULE}
     # 项目公共库更新
     if [ ${#DIR_LIB_PROJECT_MODULE} -lt 5 ]; then
         echo "project module dir invalid"
         exit 1
     fi
+    # shellcheck disable=SC2086
     if [ ! -d ${DIR_LIB_PROJECT_MODULE} ]; then
         if [ -e ${DIR_LIB_PROJECT_MODULE} ]; then
             rm -rf ${DIR_LIB_PROJECT_MODULE}
         fi
         mkdir ${DIR_LIB_PROJECT_MODULE}
     fi
+    # shellcheck disable=SC2115
+    # shellcheck disable=SC2086
     rm -rf ${DIR_LIB_PROJECT_MODULE}/*
+    # shellcheck disable=SC2086
     cp -rf ${DIR_LIB_PROJECT_ORIGIN}/* ${DIR_LIB_PROJECT_MODULE}
 }
 
@@ -96,6 +114,9 @@ function checkRefreshModule() {
 
 # js文件格式化
 function formatJs() {
+    # shellcheck disable=SC2045
+    # shellcheck disable=SC2086
+    # shellcheck disable=SC2006
     for file in `ls $1`
     do
         fullFile=$1/${file}
@@ -109,25 +130,44 @@ function formatJs() {
 
 # 生成rollup配置文件
 function createRollupConfig() {
+    # shellcheck disable=SC2086
     if [ -e ${FILE_ROLLUP_CONFIG} ]; then
         return 0
     fi
 
+    # shellcheck disable=SC2086
     echo "import resolve from \"@rollup/plugin-node-resolve\";" > ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
+    # shellcheck disable=SC2129
     echo "import commonjs from \"@rollup/plugin-commonjs\";" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "import babel from \"@rollup/plugin-babel\";" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "import json from \"@rollup/plugin-json\";" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "export default {" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "    input: [\"./static/project/js/test.js\"], //入口文件路径" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "    output: {" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "        file: \"./dist/bundle.js\", //输出文件路径" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "        format: \"umd\", //输出文件格式" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "        name: \"experience\"," >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "        banner: \"\", //文件头部添加的内容" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "        footer: \"\", //文件末尾添加的内容" >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "    }," >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "    plugins: [resolve(), commonjs(), babel(), json()]," >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "    external: [\"the-answer\"]," >> ${FILE_ROLLUP_CONFIG}
+    # shellcheck disable=SC2086
     echo "};" >> ${FILE_ROLLUP_CONFIG}
 }

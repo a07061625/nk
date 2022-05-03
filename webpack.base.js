@@ -5,6 +5,9 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const glob = require('glob');
+const path = require('path');
 const webpack = require('webpack');
 
 let localConstant = require('nk-project/constants/project');
@@ -29,8 +32,33 @@ for (let i = 0; i < localConstantLength; i++) {
     trueConstant[eKey] = eVal;
 }
 
+// 多页面打包
+const entryMap = () => {
+    const entry = {};
+    const htmlPlugins = [];
+    const entryFiles = glob.sync('./static/project/js/*.js');
+    entryFiles.forEach((item) => {
+        const entryFile = item;
+        const match = entryFile.match(/src\/project\/js\/entry_(.*)\.js$/);
+        const pageName = match[1];
+        entry[pageName] = entryFile;
+        htmlPlugins.push(
+            new HtmlWebpackPlugin({
+                template: path.join(__dirname, '/index.html'),
+                filename: `${pageName}.html`,
+                chunks: [pageName]
+            })
+        );
+    });
+
+    return {entry, htmlPlugins}
+}
+
+const { entry, htmlWebpackPlugins } = entryMap()
+
 module.exports = {
     devtool: 'inline-source-map', // 报错会指定错误位置和所属文件
+    entry: entry,
     module: {
         rules: [
             {
@@ -57,7 +85,14 @@ module.exports = {
                     'thread-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'postcss-loader'
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [require('autoprefixer')]
+                            }
+                        }
+                    }
                 ]
             },
             {
@@ -79,6 +114,21 @@ module.exports = {
                 use: [
                     'thread-loader',
                     'html-withimg-loader'
+                ]
+            },
+            { // 图片处理
+                test: /\.(png|jpg|gif|svg)/,
+                use: [
+                    'thread-loader',
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            limit: 3072,
+                            outputPath: 'images/',
+                            publicPath: "/images"
+                        }
+                    }
                 ]
             }
         ]
@@ -154,6 +204,7 @@ module.exports = {
             canPrint: false // 是否打印编译过程中的日志
         }),
         new HardSourceWebpackPlugin(),
+        ...htmlWebpackPlugins
     ],
     optimization: {
         minimize: true,

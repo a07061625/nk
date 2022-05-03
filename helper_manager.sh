@@ -3,20 +3,27 @@ set -o nounset
 set -o errexit
 
 # 项目根目录
+# shellcheck disable=SC2006
 FILE_ROOT_NAME=`readlink -f "$0"`
+# shellcheck disable=SC2086
+# shellcheck disable=SC2006
 DIR_ROOT=`dirname ${FILE_ROOT_NAME}`
 
 # 以下shell脚本均需拥有可执行全选
 # env_project.sh样板为static/env_project_example.sh
-. ${DIR_ROOT}/static/env_project.sh
-. ${DIR_ROOT}/static/env_frame.sh
-. ${DIR_ROOT}/static/func_frame.sh
+# shellcheck disable=SC2086
+source ${DIR_ROOT}/static/env_project.sh
+# shellcheck disable=SC2086
+source ${DIR_ROOT}/static/env_frame.sh
+# shellcheck disable=SC2086
+source ${DIR_ROOT}/static/func_frame.sh
 
 # rollup配置文件
 FILE_ROLLUP_CONFIG=${DIR_ROOT}/rollup.config.js
 
 case "$1" in
     init)
+        # shellcheck disable=SC2086
         rm -rf ${DIR_ROOT}/node_modules
         createPackageJson
         npm init -y
@@ -30,28 +37,35 @@ case "$1" in
         echo "init project success"
         ;;
     start)
+        # shellcheck disable=SC2086
         if [ $PID -gt 0 ]; then
             echo "node process is running"
             exit 1;
         fi
         refreshTag=${2:-0}
+        # shellcheck disable=SC2086
         checkRefreshModule ${refreshTag}
+        # shellcheck disable=SC2086
         forever ${COMMAND_START}
         ;;
     stop)
+        # shellcheck disable=SC2086
         if [ $PID -gt 0 ]; then
             forever stop ${PROJECT_TAG}${SUFFIX_JS}
             kill $PID
         fi
         ;;
     restart)
+        # shellcheck disable=SC2086
         if [ $PID -gt 0 ]; then
             forever stop ${PROJECT_TAG}${SUFFIX_JS}
             kill $PID
             sleep 3s
         fi
         refreshTag=${2:-0}
+        # shellcheck disable=SC2086
         checkRefreshModule ${refreshTag}
+        # shellcheck disable=SC2086
         forever ${COMMAND_START}
         ;;
     refresh)
@@ -64,13 +78,19 @@ case "$1" in
         npm run build-product
         ;;
     format)
+        # shellcheck disable=SC2086
         echo > ${FILE_CHECK_RESULT}
+        # shellcheck disable=SC2086
         formatJs ${DIR_LIB_FRAME_ORIGIN}/nk-frame
+        # shellcheck disable=SC2086
         formatJs ${DIR_LIB_PROJECT_ORIGIN}
         ;;
     static)
+        # shellcheck disable=SC2086
         cp -rf ${DIR_LIB_FRAME_ORIGIN}/nk-static/* ${DIR_ROOT}/static
+        # shellcheck disable=SC2086
         chmod a+x ${DIR_ROOT}/static/env_frame.sh
+        # shellcheck disable=SC2086
         chmod a+x ${DIR_ROOT}/static/func_frame.sh
         ;;
     rollup)
