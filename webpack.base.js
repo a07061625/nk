@@ -36,7 +36,7 @@ for (let i = 0; i < localConstantLength; i++) {
 const entryMap = () => {
     const entry = {};
     const htmlPlugins = [];
-    const entryFiles = glob.sync('./static/project/js/*.js');
+    const entryFiles = glob.sync('./static/project/js/entry_*.js');
     entryFiles.forEach((item) => {
         const entryFile = item;
         const match = entryFile.match(/src\/project\/js\/entry_(.*)\.js$/);
